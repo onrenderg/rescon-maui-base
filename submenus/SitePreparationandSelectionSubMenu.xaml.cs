@@ -1,0 +1,122 @@
+﻿using ResillentConstruction.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+
+namespace ResillentConstruction.submenus
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class SitePreparationandSelectionSubMenu : ContentPage
+    {
+        public Label[] Footer_Labels;
+        public string[] Footer_Image_Source;
+        public Image[] Footer_Images;
+        string htmlstartpath;
+        string htmlendpath = $"\">\n</head>\n</html>";
+        SaveUserPreferencesDatabase saveUserPreferencesDatabase = new SaveUserPreferencesDatabase();
+        List<SaveUserPreferences> saveUserPreferenceslist;
+            
+        string userzone,districtname;
+        string pagettitle;
+
+        public SitePreparationandSelectionSubMenu(string _pagenm)
+        {
+            InitializeComponent();
+            pagettitle = _pagenm;
+
+            saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
+            string language = Preferences.Get("lan", "EN-IN");
+            if (language.Equals("EN-IN"))
+            {
+
+                htmlstartpath = $"<html>\n<head>\n<meta http-equiv=\"Refresh\" content=\"0;url=2024/English/HTMLs/Zone/";
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+
+            }
+            else
+            {
+                htmlstartpath = $"<html>\n<head>\n<meta http-equiv=\"Refresh\" content=\"0;url=2024/Hindi/HTMLs/Zone/";
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+            }
+            Footer_Labels = new Label[3] { Tab_Home_Label, Tab_Download_Label, Tab_Settings_Label };
+            Footer_Images = new Image[3] { Tab_Home_Image, Tab_Download_Image, Tab_Settings_Image };
+            //Footer_Image_Source = new string[3] { "ic_stock.png", "ic_add.png", "ic_more.png" };
+            Footer_Image_Source = new string[3] { "ic_home.png", "ic_download.png", "ic_more.png" };
+            lbl_header_submenu.Text = App.LableText("selectsubcatgeory") + "\n" + _pagenm;
+
+           
+
+
+            userzone = saveUserPreferenceslist.ElementAt(0).zonename.ToString();
+        }
+
+
+        private void Btn_Accessibility_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ViewWebHtml(pagettitle, "", htmlstartpath + $"{userzone}/Accessibility.html" + htmlendpath) { Title = App.LableText("Accessibility") });
+
+        }
+
+        private void Btn_SiteIdentification_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ViewWebHtml(pagettitle, "", htmlstartpath + $"{userzone}/SiteIdentification.html" + htmlendpath) { Title = App.LableText("SiteIdentification") });
+        }
+
+        private void Btn_SiteDevelopment_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ViewWebHtml(pagettitle, "", htmlstartpath + $"{userzone}/SiteDevelopment.html" + htmlendpath) { Title = App.LableText("SiteDevelopment") });
+        }
+
+        private void Btn_SiteOrientation_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ViewWebHtml(pagettitle, "", htmlstartpath + $"{userzone}/SiteOrientation.html" + htmlendpath) { Title = App.LableText("SiteOrientation") });
+        }
+        private void Btn_GeneralTips_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ViewWebHtml(pagettitle, "", htmlstartpath + $"{userzone}/GeneralTips.html" + htmlendpath) { Title = App.LableText("GeneralTips") });
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            lbl_navigation_header.Text = App.LableText("lbl_navigation_header");
+            Tab_Home_Label.Text = App.LableText("Home");
+            Tab_Download_Label.Text = App.LableText("Download");
+            Tab_Settings_Label.Text = App.LableText("More");
+            Footer_Image_Source = new string[3] { "ic_home.png", "ic_downloadwhite.png", "ic_morewhite.png" };
+            Footer_Images[Preferences.Get("Active", 0)].Source = Footer_Image_Source[Preferences.Get("Active", 0)];
+            Footer_Labels[Preferences.Get("Active", 0)].TextColor = Color.FromHex("#0f0f0f");
+
+            //lbl_user_header1.Text = App.LableText("SitePreparationandSelection");
+            lbl_Topheading.Text = saveUserPreferenceslist.ElementAt(0).Name + " (" + districtname + ", " + App.LableText("yourzone") + " - " + saveUserPreferenceslist.ElementAt(0).zonename + ")";
+
+            Btn_Accessibility.Text = App.LableText("Accessibility");
+            Btn_SiteIdentification.Text = App.LableText("SiteIdentification");
+            Btn_SiteDevelopment.Text = App.LableText("SiteDevelopment");
+            Btn_SiteOrientation.Text = App.LableText("SiteOrientation");
+            Btn_GeneralTips.Text = App.LableText("GeneralTips");
+        }
+        private void Tab_Home_Tapped(object sender, EventArgs e)
+        {
+            Preferences.Set("Active", 0);
+            Application.Current.MainPage = new NavigationPage(new DashboardPage());
+        }
+        private void Tab_Download_Tapped(object sender, EventArgs e)
+        {
+            Preferences.Set("Active", 1);
+            Application.Current.MainPage = new NavigationPage(new DownloadPage());
+        }
+        private void Tab_Settings_Tapped(object sender, EventArgs e)
+        {
+            Preferences.Set("Active", 2);
+            Application.Current.MainPage = new NavigationPage(new MorePage());
+        }
+
+
+    }
+}

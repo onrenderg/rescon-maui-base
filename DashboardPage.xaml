@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResillentConstruction.DashboardPage"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls" 
+             ios:Page.UseSafeArea="true">
+
+    <NavigationPage.TitleView  >
+        <StackLayout x:Name="Custom_Navigation" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" >
+            <Image Source="ic_himachallogo.png"  HeightRequest="50"  VerticalOptions="CenterAndExpand"/>
+            <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="0">
+                <Label  x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            </StackLayout>
+            <Image Source="ic_launcher.png"  HeightRequest="50"  VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_home.png" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <Grid>
+        <StackLayout Spacing="3" Padding="5">
+
+            <StackLayout Orientation="Horizontal"  >
+                <StackLayout HorizontalOptions="FillAndExpand"  BackgroundColor="#c4913f">
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Orientation="Horizontal">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="imgbtn_profile_Clicked"/>
+                        </StackLayout.GestureRecognizers>
+
+                        <ImageButton HeightRequest="70" WidthRequest="60" Padding="3" Aspect="AspectFit"  BorderWidth="1" CornerRadius="15"  
+                         IsVisible="true" BackgroundColor="Transparent" HorizontalOptions="Center" Source="ic_userwhite.png" x:Name="imgbtn_profile" Clicked="imgbtn_profile_Clicked"/>
+                        <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" x:Name="lbl_user_header1"  TextColor="White" FontAttributes="Bold" FontSize="20"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" VerticalOptions="Center" IsVisible="false">
+                        <ImageButton VerticalOptions="Center"  Padding="3" HorizontalOptions="End" x:Name="img_raisequery" BorderWidth="1" CornerRadius="15" BackgroundColor="Transparent" Clicked="img_raisequery_Clicked"  Source="ic_query_white.png" HeightRequest="50" Margin="0,0,5,0" />
+                        <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" x:Name="lbl_raisequery"  TextColor="White" Text="raise" 
+                    FontAttributes="Bold" FontSize="18"/>
+                    </StackLayout>
+                </StackLayout>
+                <ImageButton x:Name="img_language" Source="language_ico.png" BackgroundColor="Transparent" Clicked="img_language_Clicked" HeightRequest="40"  Padding="3"  />
+            </StackLayout>
+
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" x:Name="lbl_header_menu"  BackgroundColor="#058ef2"
+                     TextColor="White"   FontAttributes="Bold" FontSize="18" Padding="5" Margin="0,5,0,0"/>
+                <!--<ImageButton x:Name="img_language" Source="language_ico.png" BackgroundColor="Transparent" Clicked="img_language_Clicked" HeightRequest="40"  Padding="3"  />-->
+
+            </StackLayout>
+
+
+
+            <ScrollView VerticalOptions ="FillAndExpand">
+                <StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="0,5,0,0" >
+
+                        <!--<Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_webview_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_siteprepselection1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Load Webview" x:Name="Btn_webview"  VerticalTextAlignment="Center" 
+                                    HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>-->
+
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_SitePreparationandSelection_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_siteprepselection1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Site Preparation and Selection" x:Name="Btn_SitePreparationandSelection"  VerticalTextAlignment="Center" 
+                                        HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_SitePreparation_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_sitepreaparations1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Site Preparation" x:Name="Btn_SitePreparation"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_PlanningGuidelines_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_planning1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Planning Guidelines" x:Name="Btn_PlanningGuidelines"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_ExcavationandConstructionofFoundation_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_excavation1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Excavation and Construction of Foundation" x:Name="Btn_ExcavationandConstructionofFoundation"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_ConstructionofPlinthBand_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_plinthblind1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Construction of Plinth Band" x:Name="Btn_ConstructionofPlinthBand"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_MasonryofSuperStructure_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_masonry1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Masonry of Super Structure" x:Name="Btn_MasonryofSuperStructure"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_FixingofDoorsandWindowsFrames_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_door1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Fixing of Doors and Windows Frames" x:Name="Btn_FixingofDoorsandWindowsFrames"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_LintelBandandSunshades_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_lintlebandsuns1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Lintel Band and Sunshades" x:Name="Btn_LintelBandandSunshades"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_RoofConstruction_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_roofcontruct1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Roof Construction" x:Name="Btn_RoofConstruction"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_GeneralInformationaboutMaterials_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_buildingmaterial1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="General Information about Materials" x:Name="Btn_GeneralInformationaboutMaterials"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_AverageConstructionCost_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_constructioncost1.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Average Construction Cost" x:Name="Btn_AverageConstructionCost"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <Grid VerticalOptions="End" Style="{StaticResource FooterGridStyle}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Home_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image x:Name="Tab_Home_Image" Source="ic_home.png" HeightRequest="20"/>
+                    <Label x:Name="Tab_Home_Label" Text="Home" Style="{StaticResource LabelStyle_TabMenu}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Download_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image x:Name="Tab_Download_Image" Source="ic_downloadwhite.png" HeightRequest="20"/>
+                    <Label x:Name="Tab_Download_Label" Text="Download" Style="{StaticResource LabelStyle_TabMenu}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="2" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Settings_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image x:Name="Tab_Settings_Image" Source="ic_morewhite.png" HeightRequest="20"/>
+                    <Label x:Name="Tab_Settings_Label" Text="More" Style="{StaticResource LabelStyle_TabMenu}"/>
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+
+        <ContentView x:Name="Loading_activity" BackgroundColor="#C0808080" Padding="20, 20" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Frame  HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" Margin="6" HorizontalOptions="FillAndExpand">
+                        <ActivityIndicator IsVisible="true" IsRunning="true" Margin="5"/>
+                        <Label x:Name="lbl_PleaseWait" Text="Please Wait ..." TextColor="Black" FontAttributes="Bold" HorizontalOptions="FillAndExpand" WidthRequest="600" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ContentView>
+    </Grid>
+</ContentPage>

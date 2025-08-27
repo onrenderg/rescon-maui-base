@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResillentConstruction.MainPage"
+             xmlns:resillentconstruction="clr-namespace:ResillentConstruction">
+
+    <!-- Custom Navigation Bar -->
+    <NavigationPage.TitleView>
+        <Grid ColumnDefinitions="Auto,*,Auto"
+          HorizontalOptions="Fill" VerticalOptions="Fill" Padding="0">
+            <!-- Left logo -->
+            <Image Grid.Column="0" Source="ic_himachallogo.png"
+               HeightRequest="40" WidthRequest="40" VerticalOptions="Center"/>
+
+            <!-- Centered title -->
+            <Label Grid.Column="1" x:Name="lbl_navigation_header"
+               Text="HPSDMA" TextColor="White" FontSize="20" FontAttributes="Bold"
+               HorizontalOptions="Center" HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"/>
+
+            <!-- Right spacer to balance the logo width -->
+            <ContentView Grid.Column="2" WidthRequest="40"/>
+        </Grid>
+    </NavigationPage.TitleView>
+
+
+    <!-- Main Grid Layout -->
+    <Grid RowDefinitions="*,Auto,Auto" Padding="9">
+
+        <!-- Scrollable Content -->
+        <ScrollView Grid.Row="0">
+            <StackLayout>
+                <Border Stroke="Silver"
+                        StrokeThickness="1"
+                        BackgroundColor="White"
+                        Padding="10"
+                        StrokeShape="RoundRectangle 10">
+                    <StackLayout Spacing="15">
+                        <Label Text="Himachal Pradesh State Disaster Management Authority (HPSDMA)"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                               TextColor="Navy"
+                               FontSize="20"
+                               FontAttributes="Bold"/>
+
+                        <Image Source="ic_hand.png"
+                               Aspect="AspectFit"
+                               HeightRequest="210"
+                               WidthRequest="210"
+                               HorizontalOptions="Center"/>
+
+                        <resillentconstruction:JustifiedLabel
+                            Text="Resilient Construction HP is a guiding app for individual house builders willing to construct disaster resistant houses in Himachal Pradesh, a beautiful place in the lap of the Himalayas. This region is frequently visited by earthquakes, landslides, and floods that bring havoc to individual houses not designed to withstand such destructive forces. This app talks about how to select a safe site for construction and what to do and what not to do at different stages of construction to build a safe, durable, cost efficient and comfortable house that can grow to meet your future family needs."
+                            FontSize="18"
+                            TextColor="Black"
+                            LineBreakMode="WordWrap"
+                            HorizontalOptions="Fill"/>
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Buttons Row -->
+        <StackLayout Grid.Row="1"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Spacing="15"
+                     Padding="0,10">
+
+            <!-- Citizen -->
+            <!-- Citizen -->
+            <Border Stroke="DeepSkyBlue"
+        StrokeThickness="2"
+        BackgroundColor="Navy"
+        Padding="7"
+        StrokeShape="RoundRectangle 10">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Radius="10" Offset="5,5" />
+                </Border.Shadow>
+                <StackLayout Orientation="Horizontal"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                  Tapped="stack_citizen_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+
+                    <!-- Extra Guidelines Image -->
+                    <Image Source="ic_guidelines.png"
+               HeightRequest="50"
+               Aspect="AspectFit"
+               Margin="0,0,10,0"/>
+
+                    <!-- Citizen Icon + Button -->
+                    <StackLayout Orientation="Vertical"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+                        <Image Source="ic_usercolor.png"
+                   HeightRequest="55"
+                   Aspect="AspectFit"/>
+                        <Button Text="CITIZEN"
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    Padding="0"/>
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+
+            <!-- Engineer -->
+            <Border Stroke="DeepSkyBlue"
+        StrokeThickness="2"
+        BackgroundColor="Navy"
+        Padding="7"
+        StrokeShape="RoundRectangle 10">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Radius="10" Offset="5,5" />
+                </Border.Shadow>
+                <StackLayout Orientation="Horizontal"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                  Tapped="stack_engineer_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+
+                    <!-- Extra Reference Image -->
+                    <Image Source="ic_reference.png"
+               HeightRequest="50"
+               Aspect="AspectFit"
+               Margin="0,0,10,0"/>
+
+                    <!-- Engineer Icon + Button -->
+                    <StackLayout Orientation="Vertical"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+                        <Image Source="ic_engineercolor.png"
+                   HeightRequest="55"
+                   Aspect="AspectFit"/>
+                        <Button Text="ENGINEER"
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    Padding="0"/>
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+
+
+        </StackLayout>
+
+        <!-- Footer -->
+        <Border Grid.Row="2"
+        Stroke="DeepSkyBlue"
+        StrokeThickness="1"
+        BackgroundColor="DeepSkyBlue"
+        StrokeShape="RoundRectangle 10"
+        Padding="5"
+        Margin="10,5,10,10">
+
+            <Label x:Name="lbl_footer"
+           Text="Centre Of Competence For Mobile Application Development NIC Himachal Pradesh (v1.0)"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           TextColor="White"
+           FontSize="12"
+           FontAttributes="Bold"/>
+        </Border>
+
+    </Grid>
+</ContentPage>

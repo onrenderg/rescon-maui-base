@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResillentConstruction.MoreGuidelinesPage"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls" 
+             ios:Page.UseSafeArea="true">
+
+    <NavigationPage.TitleView>
+        <StackLayout x:Name="Custom_Navigation" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" >
+            <Image Source="ic_himachallogo.png"  HeightRequest="50"  VerticalOptions="CenterAndExpand"/>
+            <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="0">
+                <Label  x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            </StackLayout>
+            <Image Source="ic_launcher.png"  HeightRequest="50"  VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <Grid>
+        <StackLayout Spacing="3" Padding="5">
+            <StackLayout Orientation="Horizontal">
+                <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" x:Name="lbl_Topheading"  TextColor="White" BackgroundColor="#c4913f" FontAttributes="Bold" FontSize="20"/>
+            </StackLayout>
+
+            <ScrollView VerticalOptions ="FillAndExpand">
+                <StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="0,5,0,0">
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_masonguide_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Mason's guide for construction of Non-Engineered buildings(Bilingual)" x:Name="Btn_masonguide"  VerticalTextAlignment="Center" 
+                                        HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_Ownersguide_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Owner's guide for construction of Non-Engineered buildings" x:Name="Btn_Ownersguide"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>   
+                        
+                        
+                
+
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_dwellingunitforSeismiczone_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="A typical design of small dwelling unit for Seismic zone" x:Name="Btn_dwellingunitforSeismiczone"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_EarthQuakeResistantConstructionIV_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="EarthQuake Resistant Construction IV" x:Name="Btn_EarthQuakeResistantConstructionIV"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_GuideForEarthquakeRetrofitting_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Guide For Earthquake Retrofitting" x:Name="Btn_GuideForEarthquakeRetrofitting"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_RetrofittingGuidelines_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Retrofitting Guidelines" x:Name="Btn_RetrofittingGuidelines"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_SimplifiedGuidelineZoneV_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  Text="Simplified Guideline Zone V" x:Name="Btn_SimplifiedGuidelineZoneV"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+
+                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Btn_EvolvingStrategyPanchayatlevel_Clicked" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label  
+                                    Text="Evolving Strategy for Capacity Building of Masons, Carpenters and Wire Binders at Panchayat level for safe construction" 
+                                    x:Name="Btn_EvolvingStrategyPanchayatlevel"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                            </StackLayout>
+                        </Frame>
+
+                       
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <Grid VerticalOptions="End" Style="{StaticResource FooterGridStyle}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Home_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image x:Name="Tab_Home_Image" Source="ic_homewhite.png" HeightRequest="20"/>
+                    <Label x:Name="Tab_Home_Label" Text="Home" Style="{StaticResource LabelStyle_TabMenu}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Download_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image x:Name="Tab_Download_Image" Source="ic_downloadwhite.png" HeightRequest="20"/>
+                    <Label x:Name="Tab_Download_Label" Text="Download" Style="{StaticResource LabelStyle_TabMenu}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="2" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Settings_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image x:Name="Tab_Settings_Image" Source="ic_morewhite.png" HeightRequest="20"/>
+                    <Label x:Name="Tab_Settings_Label" Text="More" Style="{StaticResource LabelStyle_TabMenu}"/>
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+
+        <ContentView x:Name="Loading_activity" BackgroundColor="#C0808080" Padding="20, 20" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Frame  HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" Margin="6" HorizontalOptions="FillAndExpand">
+                        <ActivityIndicator IsVisible="true" IsRunning="true" Margin="5"/>
+                        <Label x:Name="lbl_PleaseWait" Text="Please Wait ..." TextColor="Black" FontAttributes="Bold" HorizontalOptions="FillAndExpand" WidthRequest="600" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ContentView>
+    </Grid>
+</ContentPage>
