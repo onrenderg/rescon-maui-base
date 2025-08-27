@@ -55,7 +55,7 @@ namespace ResillentConstruction
                  //   appdate = App.networkDateTime.ToString("yyyy/MM/dd");
                  //   apptime = App.networkDateTime.ToString("HH:mm:ss");
 
-                                        // Insert district data first (before API call)
+               // Insert district data first (before API call)
                     insertdistrict();
                     districtMasterslist = districtMasterDatabase.GetDistrictMaster("Select * from districtMaster").ToList();
                     
@@ -111,7 +111,7 @@ namespace ResillentConstruction
             try
             {
                 DistrictMasterDatabase db = new DistrictMasterDatabase();
-                db.DeleteDistrictMaster();
+                //db.DeleteDistrictMaster();
 
 
                 db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(1, 'Bilaspur', 'बिलासपुर', 'C', 'C');");

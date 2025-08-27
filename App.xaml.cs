@@ -19,26 +19,40 @@ namespace ResillentConstruction
     {
         public static string AppName = "Resilient Construction H.P.";
         public static string DB_Name = "ResilientConstruction.db";
-        LanguageMasterDatabase languageMasterDatabase=new LanguageMasterDatabase();
+        LanguageMasterDatabase languageMasterDatabase = new LanguageMasterDatabase();
         public static int Language = 0;
         public static List<LanguageMaster> MyLanguage;
         //public static List<DistrictMaster> districtMasterslist;
-        SaveUserPreferencesDatabase saveUserPreferencesDatabase=new SaveUserPreferencesDatabase();
+        SaveUserPreferencesDatabase saveUserPreferencesDatabase = new SaveUserPreferencesDatabase();
         List<SaveUserPreferences> saveUserPreferenceslist;
 
         public static double Latitude;
         public static double Longitude;
         public static double Accuracy;
         public static DateTime networkDateTime;
-
+        public static List<DistrictMaster> districtMasterslist = new List<DistrictMaster>();
+        public static DistrictMasterDatabase districtMasterDatabase = new DistrictMasterDatabase();
         public App()
         {
             InitializeComponent();
+            // malui createWindow
             MainPage = new NavigationPage(new MainPage());
-            insertlanguageleys1();
-            
+            // DistrictMaster And langMaster
+            districtMasterslist = districtMasterDatabase.GetDistrictMaster("SELECT * FROM DistrictMaster").ToList();
+            if (!districtMasterslist.Any())
+            {
+                insertdistrict();
+            }
+
+            MyLanguage = languageMasterDatabase.GetLanguageMaster("Select * from LanguageMaster").ToList();
+            if (!MyLanguage.Any())
+            {
+                insertlanguageleys1();
+                MyLanguage = languageMasterDatabase.GetLanguageMaster("Select * from LanguageMaster").ToList();
+            }
+
         }
-        
+
         public static void insertlanguageleys1()
         {
             try
@@ -320,6 +334,8 @@ namespace ResillentConstruction
 
                 App.MyLanguage = db.GetLanguageMaster($"select * from  LanguageMaster").ToList();
 
+
+                // insert 
             }
             catch
             {
@@ -327,8 +343,32 @@ namespace ResillentConstruction
             }
         }
 
-     
 
+        public void insertdistrict()
+        {
+            try
+            {
+                DistrictMasterDatabase db = new DistrictMasterDatabase();
+                //db.DeleteDistrictMaster();
+
+
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(1, 'Bilaspur', 'बिलासपुर', 'C', 'C');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(2, 'Chamba', 'चम्बा', 'B', 'B');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(3, 'Hamirpur', 'हमीरपुर', 'C', 'C');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(4, 'Kangra', 'काँगड़ा', 'B', 'B');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(5, 'Kinnaur', 'किन्नौर', 'A', 'A');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(6, 'Kullu', 'कुल्लू', 'B', 'B');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(7, 'LAHAUL - SPITI', 'लाहौल -स्पीति ', 'A', 'A');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(8, 'MANDI', 'मंडी', 'B', 'B');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(9, 'Shimla', 'शिमला', 'B', 'B');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(10, 'Sirmaur', 'सिरमौर', 'C', 'C');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(11, 'SOLAN', 'सोलन', 'C', 'C');");
+                db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(12, 'Una', 'ऊना', 'C', 'C');");
+            }
+            catch (Exception e)
+            {
+            }
+        }
         public static string LableText(string key)
         {
             try//Preferences.Get("lan", "EN-IN")
