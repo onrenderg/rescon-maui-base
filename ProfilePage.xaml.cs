@@ -21,7 +21,6 @@ namespace ResillentConstruction
         List<SaveUserPreferences> saveUserPreferenceslist;
         int zonecode;
         string zonename;
-        double applat, applong;
 
         DistrictMasterDatabase districtMasterDatabase = new DistrictMasterDatabase();
         List<DistrictMaster> districtMasterslist = new List<DistrictMaster>();
@@ -33,69 +32,66 @@ namespace ResillentConstruction
 
             lbl_navigation_header.Text = App.LableText("lbl_navigation_header");
 
-
             Dispatcher.Dispatch(async () =>
             {
                 Loading_activity.IsVisible = true;
 
-                do
+                // Ensure districts are loaded and bind Picker once
+                insertdistrict();
+                districtMasterslist = districtMasterDatabase.GetDistrictMaster("Select * from districtMaster").ToList();
+                Picker_District.ItemsSource = districtMasterslist;
+                Picker_District.Title = App.LableText("district");
+                Picker_District.ItemDisplayBinding = new Binding("DistrictName");
+
+                // Load any saved profile
+                saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
+
+                if (!saveUserPreferenceslist.Any())
                 {
-                    lbl_PleaseWait.Text = App.LableText("PleaseWait");
-                    var service = new HitServices();
-                    //await service.getDistrictMaster();
+                    // First profile: hide Get District button (will be shown after first save)
+                    Btn_getdistrict.IsVisible = false;
+                    // First visit: get GPS and resolve current district ONCE
                     await App.GetLocation();
-                    //var place = await App.GetmyAddress();
-
-
-                    applat = App.Latitude;
-                    applong = App.Longitude;
-                 //   appaccuracy = App.Accuracy;
-                 //   appdate = App.networkDateTime.ToString("yyyy/MM/dd");
-                 //   apptime = App.networkDateTime.ToString("HH:mm:ss");
-
-               // Insert district data first (before API call)
-                    insertdistrict();
-                    districtMasterslist = districtMasterDatabase.GetDistrictMaster("Select * from districtMaster").ToList();
-                    
                     var sevice = new HitServices();
-                    int responselocation = await sevice.getcuurentdistrict(applat.ToString(), applong.ToString());
+                    int responselocation = await sevice.getcuurentdistrict(App.Latitude.ToString(), App.Longitude.ToString());
                     if (responselocation == 200)
                     {
-
-                        Picker_District.ItemsSource = districtMasterslist;                     
-                        Picker_District.Title = App.LableText("district");
-                        Picker_District.ItemDisplayBinding = new Binding("DistrictName");
                         int discode = Preferences.Get("Discode", 0);
-                        
-                        DistrictName = Preferences.Get("DistrictName", "");
-
-                        // lbl_gpsdistrict.Text = App.LableText("aspergps")+" '" + DistrictName+"'";
-
                         int districtindex = districtMasterslist.FindIndex(s => s.DistrictCode == discode);
                         if (districtindex != -1)
                         {
-                            Picker_District.SelectedIndex = districtindex;
-                            districtcode = districtMasterslist.ElementAt(districtindex).DistrictCode;
-                            DistrictName = districtMasterslist.ElementAt(districtindex).DistrictName;
-                            DistrictNameLocal = districtMasterslist.ElementAt(districtindex).DistrictNameLocal;
+                            Picker_District.SelectedIndex = districtindex; // triggers SelectedIndexChanged to set zone
                         }
                     }
-
-                    loaddata();
-                    if (Preferences.Get("lan", "").Equals("EN-IN"))
-                    {
-
-                        lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + Preferences.Get("DistrictName", DistrictName) + "'";
-                    }
-                    else
-                    {
-                        lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + Preferences.Get("DistrictName", DistrictName) + "' " + App.LableText("aspergpshi1");
-                    }
-
-
-                    Loading_activity.IsVisible = false;
                 }
-                while (App.Longitude < 1.00);
+                else
+                {
+                    // Subsequent visits: show Get District button for on-demand refresh
+                    Btn_getdistrict.IsVisible = true;
+                    // Subsequent visits: prefer saved profile district
+                    if (int.TryParse(saveUserPreferenceslist.ElementAt(0).DistrictID, out var savedDisCode))
+                    {
+                        int idx = districtMasterslist.FindIndex(d => d.DistrictCode == savedDisCode);
+                        if (idx != -1)
+                        {
+                            Picker_District.SelectedIndex = idx; // triggers SelectedIndexChanged to set zone
+                        }
+                    }
+                }
+
+                loaddata();
+
+                // Update the GPS label using either Preferences or current DistrictName
+                if (Preferences.Get("lan", "").Equals("EN-IN"))
+                {
+                    lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + Preferences.Get("DistrictName", DistrictName) + "'";
+                }
+                else
+                {
+                    lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + Preferences.Get("DistrictName", DistrictName) + "' " + App.LableText("aspergpshi1");
+                }
+
+                Loading_activity.IsVisible = false;
             });
 
 
@@ -109,8 +105,11 @@ namespace ResillentConstruction
             try
             {
                 DistrictMasterDatabase db = new DistrictMasterDatabase();
-                db.DeleteDistrictMaster();
-
+                var existing = db.GetDistrictMaster("Select * from DistrictMaster").ToList();
+                if (existing.Any())
+                {
+                    return; // Already seeded
+                }
 
                 db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(1, 'Bilaspur', 'बिलासपुर', 'C', 'C');");
                 db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(2, 'Chamba', 'चम्बा', 'B', 'B');");
@@ -280,6 +279,39 @@ namespace ResillentConstruction
 
             }
 
+        }
+
+        private async void Btn_getdistrict_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                Loading_activity.IsVisible = true;
+                await App.GetLocation();
+                var sevice = new HitServices();
+                int responselocation = await sevice.getcuurentdistrict(App.Latitude.ToString(), App.Longitude.ToString());
+                if (responselocation == 200)
+                {
+                    int discode = Preferences.Get("Discode", 0);
+                    int idx = districtMasterslist.FindIndex(d => d.DistrictCode == discode);
+                    if (idx != -1)
+                    {
+                        Picker_District.SelectedIndex = idx; // updates zone and labels via SelectedIndexChanged
+                    }
+
+                    if (Preferences.Get("lan", "").Equals("EN-IN"))
+                    {
+                        lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + Preferences.Get("DistrictName", DistrictName) + "'";
+                    }
+                    else
+                    {
+                        lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + Preferences.Get("DistrictName", DistrictName) + "' " + App.LableText("aspergpshi1");
+                    }
+                }
+            }
+            finally
+            {
+                Loading_activity.IsVisible = false;
+            }
         }
 
         private async Task<bool> checkvalidtion()

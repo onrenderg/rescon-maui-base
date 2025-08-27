@@ -39,7 +39,10 @@
                         <Entry  x:Name="entry_email" FontSize="20" MaxLength="50" Keyboard="Email"/>
 
                         <Label x:Name="lbl_District" Text="District *" FontSize="20"   FontAttributes="Bold"   />
-                        <Picker Title="Select District" x:Name="Picker_District" SelectedIndexChanged="Picker_District_SelectedIndexChanged"  />
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Picker Title="Select District" x:Name="Picker_District" SelectedIndexChanged="Picker_District_SelectedIndexChanged" Grid.Column="0" FontSize="20" />
+                            <Button x:Name="Btn_getdistrict" Text="Get District" Clicked="Btn_getdistrict_Clicked" BackgroundColor="Navy" TextColor="White" FontAttributes="Bold" Grid.Column="1" IsVisible="False" />
+                        </Grid>
 
                         <Label  x:Name="lbl_fallinzone" Text="You fall in Zone : " FontSize="20" HorizontalOptions="Center"   FontAttributes="Bold"  />
 
