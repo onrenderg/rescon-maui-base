@@ -87,17 +87,16 @@ namespace ResillentConstruction.webapi
                             {
                                 if (isMandatory == "Y")
                                 {
-                                    // await Application.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}", "Update");
-                                    await App.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}", "Update","Close");
+                                    var window = Application.Current?.Windows?.FirstOrDefault();
+                                    await window?.Page?.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}", "Update","Close");
                                     await Launcher.OpenAsync(url);
                                     return;
                                 }
                                 else
                                 {
 
-                                    //var updat = await Application.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}\nWould you like to update now?", "Yes", "No");                                  
-                                  
-                                            var updat = await App.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}\nWould you like to update now?", "Yes", "No");
+                                    var window2 = Application.Current?.Windows?.FirstOrDefault();
+                                    var updat = await window2?.Page?.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}\nWould you like to update now?", "Yes", "No");
                                             if (updat)
                                             {
                                                 await Launcher.OpenAsync(url);
@@ -273,7 +272,8 @@ namespace ResillentConstruction.webapi
                     }
                     else
                     {
-                        await Application.Current.MainPage.DisplayAlert(AppName, "Unable to fetch Department.", ("close"));
+                        var window = Application.Current?.Windows?.FirstOrDefault();
+                        await window?.Page?.DisplayAlert(AppName, "Unable to fetch Department.", ("close"));
 
                     }
                     return (int)response.StatusCode;
@@ -286,7 +286,8 @@ namespace ResillentConstruction.webapi
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert(AppName, NoInternet_, ("close"));
+                var window3 = Application.Current?.Windows?.FirstOrDefault();
+                await window3?.Page?.DisplayAlert(AppName, NoInternet_, ("close"));
                 return 101;
             }
         }

@@ -26,7 +26,11 @@ namespace ResillentConstruction
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new DashboardPage());
+            var window = Application.Current?.Windows?.FirstOrDefault();
+            if (window != null)
+            {
+                window.Page = new NavigationPage(new DashboardPage());
+            }
         }
     }
 }

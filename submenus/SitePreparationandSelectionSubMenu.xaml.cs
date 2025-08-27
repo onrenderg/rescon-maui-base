@@ -90,7 +90,7 @@ namespace ResillentConstruction.submenus
             Tab_Settings_Label.Text = App.LableText("More");
             Footer_Image_Source = new string[3] { "ic_home.png", "ic_downloadwhite.png", "ic_morewhite.png" };
             Footer_Images[Preferences.Get("Active", 0)].Source = Footer_Image_Source[Preferences.Get("Active", 0)];
-            Footer_Labels[Preferences.Get("Active", 0)].TextColor = Color.FromHex("#0f0f0f");
+            Footer_Labels[Preferences.Get("Active", 0)].TextColor = Color.FromArgb("#FF0F0F0F");
 
             //lbl_user_header1.Text = App.LableText("SitePreparationandSelection");
             lbl_Topheading.Text = saveUserPreferenceslist.ElementAt(0).Name + " (" + districtname + ", " + App.LableText("yourzone") + " - " + saveUserPreferenceslist.ElementAt(0).zonename + ")";
@@ -104,17 +104,29 @@ namespace ResillentConstruction.submenus
         private void Tab_Home_Tapped(object sender, EventArgs e)
         {
             Preferences.Set("Active", 0);
-            Application.Current.MainPage = new NavigationPage(new DashboardPage());
+            var window = Application.Current?.Windows?.FirstOrDefault();
+            if (window != null)
+            {
+                window.Page = new NavigationPage(new DashboardPage());
+            }
         }
         private void Tab_Download_Tapped(object sender, EventArgs e)
         {
             Preferences.Set("Active", 1);
-            Application.Current.MainPage = new NavigationPage(new DownloadPage());
+            var window2 = Application.Current?.Windows?.FirstOrDefault();
+            if (window2 != null)
+            {
+                window2.Page = new NavigationPage(new DownloadPage());
+            }
         }
         private void Tab_Settings_Tapped(object sender, EventArgs e)
         {
             Preferences.Set("Active", 2);
-            Application.Current.MainPage = new NavigationPage(new MorePage());
+            var window3 = Application.Current?.Windows?.FirstOrDefault();
+            if (window3 != null)
+            {
+                window3.Page = new NavigationPage(new MorePage());
+            }
         }
 
 

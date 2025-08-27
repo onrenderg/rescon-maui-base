@@ -30,7 +30,7 @@
                 <StackLayout>
 
                     <StackLayout Orientation="Vertical" Margin="0,15,0,0">
-                        <Frame  CornerRadius="10"  BorderColor="#058ef2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout  Orientation="Horizontal" VerticalOptions="Center" >
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_video_Clicked" NumberOfTapsRequired="1"/>
@@ -40,9 +40,9 @@
                                 <Label x:Name="Btn_video" Text="Need for Disaster Resilient Construction Guidelines" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#058ef2"
                                        FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
                         
-                        <Frame  CornerRadius="10"  BorderColor="#058ef2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout  Orientation="Horizontal" VerticalOptions="Center" >
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_userzone_Clicked" NumberOfTapsRequired="1"/>
@@ -51,9 +51,9 @@
                                 <Label x:Name="Btn_userzone" Text="Guidelines for Disaster Resilient Construction for your zone" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#058ef2"
                                     FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame  CornerRadius="10"  BorderColor="#058ef2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout  Orientation="Horizontal" VerticalOptions="Center" >
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_otherzone_Clicked" NumberOfTapsRequired="1"/>
@@ -62,9 +62,9 @@
                                 <Label x:Name="Btn_otherzone" Text="Guidelines for Disaster Resilient Construction for other zones" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#058ef2"
                                     FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame x:Name="frame_consprofpri" CornerRadius="10"  BorderColor="#058ef2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border x:Name="frame_consprofpri" Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout  Orientation="Horizontal" VerticalOptions="Center" >
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_Constructionpri_Clicked" NumberOfTapsRequired="1"/>
@@ -73,10 +73,10 @@
                                 <Label x:Name="Btn_consprofpri" Text="Guidelines for Disaster Resilient Construction for Construction Professional/PRI" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#058ef2"
                                     FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
 
-                        <Frame x:Name="frame_iecguidelines" CornerRadius="10"  BorderColor="#058ef2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border x:Name="frame_iecguidelines" Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout  Orientation="Horizontal" VerticalOptions="Center" >
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_iecguidelines_Clicked" NumberOfTapsRequired="1"/>
@@ -84,10 +84,10 @@
                                 <ImageButton Source="ic_details.png" HorizontalOptions="Start"    BackgroundColor="Transparent" HeightRequest="45"/>
                                 <Label x:Name="lbl_iecgudelines" Text="IEC Guidelines" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#058ef2" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
 
-                        <Frame x:Name="frame_moreguidelines" CornerRadius="10"  BorderColor="#058ef2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border x:Name="frame_moreguidelines" Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout  Orientation="Horizontal" VerticalOptions="Center" >
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_moreguidelines_Clicked" NumberOfTapsRequired="1"/>
@@ -95,11 +95,11 @@
                                 <ImageButton Source="ic_details.png" HorizontalOptions="Start"   BackgroundColor="Transparent" HeightRequest="45"/>
                                 <Label x:Name="lbl_moregudelines" Text="More Guidelines" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#058ef2" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
 
 
-                        <Frame x:Name="frame_SafetyTips" CornerRadius="10"  BorderColor="#058ef2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border x:Name="frame_SafetyTips" Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout  Orientation="Horizontal" VerticalOptions="Center" >
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_SafetyTips_Clicked" NumberOfTapsRequired="1"/>
@@ -107,7 +107,7 @@
                                 <ImageButton Source="ic_details.png" HorizontalOptions="Start"  BackgroundColor="Transparent" HeightRequest="45"/>
                                 <Label x:Name="lbl_SafetyTips" Text="Safety Tips" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#058ef2" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
                     </StackLayout>
                     
                     <StackLayout>
@@ -157,12 +157,12 @@
 
         <ContentView x:Name="Loading_activity" BackgroundColor="#C0808080" Padding="20, 20" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                <Frame  HorizontalOptions="FillAndExpand">
+                <Border HorizontalOptions="FillAndExpand" StrokeThickness="0">
                     <StackLayout Orientation="Horizontal" Margin="6" HorizontalOptions="FillAndExpand">
                         <ActivityIndicator IsVisible="true" IsRunning="true" Margin="5"/>
                         <Label x:Name="lbl_PleaseWait" Text="Please Wait ..." TextColor="Black" FontAttributes="Bold" HorizontalOptions="FillAndExpand" WidthRequest="600" VerticalTextAlignment="Center"/>
                     </StackLayout>
-                </Frame>
+                </Border>
             </StackLayout>
         </ContentView>
     </Grid>

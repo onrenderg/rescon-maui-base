@@ -255,7 +255,11 @@ namespace ResillentConstruction
         }
         void HomeBtn(object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new EngineerDashboardPage();
+            var window = Application.Current?.Windows?.FirstOrDefault();
+            if (window != null)
+            {
+                window.Page = new EngineerDashboardPage();
+            }
         }
     }
 }

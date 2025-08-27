@@ -21,9 +21,7 @@ namespace ResillentConstruction
         List<SaveUserPreferences> saveUserPreferenceslist;
         int zonecode;
         string zonename;
-        double applat, applong, appaccuracy;
-        string appdate, apptime;
-        string preferlanguage;
+        double applat, applong;
 
         DistrictMasterDatabase districtMasterDatabase = new DistrictMasterDatabase();
         List<DistrictMaster> districtMasterslist = new List<DistrictMaster>();
@@ -36,7 +34,7 @@ namespace ResillentConstruction
             lbl_navigation_header.Text = App.LableText("lbl_navigation_header");
 
 
-            Device.BeginInvokeOnMainThread(async () =>
+            Dispatcher.Dispatch(async () =>
             {
                 Loading_activity.IsVisible = true;
 
@@ -111,7 +109,7 @@ namespace ResillentConstruction
             try
             {
                 DistrictMasterDatabase db = new DistrictMasterDatabase();
-                //db.DeleteDistrictMaster();
+                db.DeleteDistrictMaster();
 
 
                 db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(1, 'Bilaspur', 'बिलासपुर', 'C', 'C');");
@@ -127,7 +125,7 @@ namespace ResillentConstruction
                 db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(11, 'SOLAN', 'सोलन', 'C', 'C');");
                 db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(12, 'Una', 'ऊना', 'C', 'C');");
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
         }
@@ -230,7 +228,11 @@ namespace ResillentConstruction
             }
             else
             {
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                var window = Application.Current?.Windows?.FirstOrDefault();
+                if (window != null)
+                {
+                    window.Page = new NavigationPage(new MainPage());
+                }
             }
         }
 
@@ -270,7 +272,11 @@ namespace ResillentConstruction
                 Loading_activity.IsVisible = false;
                 
                 // Navigate to dashboard
-                Application.Current.MainPage = new NavigationPage(new DashboardPage());
+                var window = Application.Current?.Windows?.FirstOrDefault();
+                if (window != null)
+                {
+                    window.Page = new NavigationPage(new DashboardPage());
+                }
 
             }
 

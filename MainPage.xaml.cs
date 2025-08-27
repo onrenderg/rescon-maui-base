@@ -11,8 +11,6 @@ namespace ResillentConstruction
 {
     public partial class MainPage : ContentPage
     {
-        double applat, applong, appaccuracy;
-        string appdate, apptime;
 
         SaveUserPreferencesDatabase saveUserPreferencesDatabase = new SaveUserPreferencesDatabase();
 
@@ -65,17 +63,25 @@ namespace ResillentConstruction
                 saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
                 bool hasPrefs = saveUserPreferenceslist != null && saveUserPreferenceslist.Any();
 
-                Application.Current.MainPage = new NavigationPage(hasPrefs ? new DashboardPage() : new ProfilePage());
+                var window = Application.Current?.Windows?.FirstOrDefault();
+                if (window != null)
+                {
+                    window.Page = new NavigationPage(hasPrefs ? new DashboardPage() : new ProfilePage());
+                }
             }
             catch (Exception ex)
             {
                 // Show the error instead of crashing
-                Application.Current?.MainPage?.DisplayAlert("Resilient Construction H.P.", ex.Message, "Close");
+                _ = DisplayAlert("Resilient Construction H.P.", ex.Message, "Close");
             }
         }
         private void stack_engineer_Tapped(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new EngineerDashboardPage());
+            var window = Application.Current?.Windows?.FirstOrDefault();
+            if (window != null)
+            {
+                window.Page = new NavigationPage(new EngineerDashboardPage());
+            }
 
         }
 

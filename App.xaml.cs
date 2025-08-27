@@ -24,7 +24,6 @@ namespace ResillentConstruction
         public static List<LanguageMaster> MyLanguage;
         //public static List<DistrictMaster> districtMasterslist;
         SaveUserPreferencesDatabase saveUserPreferencesDatabase = new SaveUserPreferencesDatabase();
-        List<SaveUserPreferences> saveUserPreferenceslist;
 
         public static double Latitude;
         public static double Longitude;
@@ -35,8 +34,6 @@ namespace ResillentConstruction
         public App()
         {
             InitializeComponent();
-            // malui createWindow
-            MainPage = new NavigationPage(new MainPage());
             // DistrictMaster And langMaster
             districtMasterslist = districtMasterDatabase.GetDistrictMaster("SELECT * FROM DistrictMaster").ToList();
             if (!districtMasterslist.Any())
@@ -51,6 +48,12 @@ namespace ResillentConstruction
                 MyLanguage = languageMasterDatabase.GetLanguageMaster("Select * from LanguageMaster").ToList();
             }
 
+        }
+
+        protected override Window CreateWindow(IActivationState? activationState)
+        {
+            // Initialize root page via CreateWindow per .NET 9 guidance
+            return new Window(new NavigationPage(new MainPage()));
         }
 
         public static void insertlanguageleys1()
@@ -365,7 +368,7 @@ namespace ResillentConstruction
                 db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(11, 'SOLAN', 'सोलन', 'C', 'C');");
                 db.ExecuteNonQuery("INSERT INTO DistrictMaster(DistrictCode, DistrictName, DistrictNameLocal,ZoneName,ZoneCode) VALUES(12, 'Una', 'ऊना', 'C', 'C');");
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
         }
@@ -382,7 +385,7 @@ namespace ResillentConstruction
                     return App.MyLanguage.FindAll(x => x.ResourceKey.Trim().ToLower() == key.Trim().ToLower()).FirstOrDefault().LocalResourceValue;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // return ex.Message;
                 return key;
@@ -482,7 +485,8 @@ namespace ResillentConstruction
             }
             catch (FeatureNotSupportedException fnsEx)
             {
-                await Current.MainPage.DisplayAlert(AppName, fnsEx.Message + "\n" + "App Cannot be used without Location", "Close");
+                var window = Application.Current?.Windows?.FirstOrDefault();
+                await window?.Page?.DisplayAlert(AppName, fnsEx.Message + "\n" + "App Cannot be used without Location", "Close");
                 System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
 
                 Latitude = 0.00;
@@ -492,7 +496,8 @@ namespace ResillentConstruction
             }
             catch (FeatureNotEnabledException fneEx)
             {
-                bool m = await Current.MainPage.DisplayAlert(AppName, fneEx.Message + "\n" + "App Cannot be used without Location.",
+                var window2 = Application.Current?.Windows?.FirstOrDefault();
+                bool m = await window2?.Page?.DisplayAlert(AppName, fneEx.Message + "\n" + "App Cannot be used without Location.",
                     "Close", "Settings");
                 if (m)
                 {
@@ -510,7 +515,8 @@ namespace ResillentConstruction
             }
             catch (PermissionException pEx)
             {
-                bool m = await Current.MainPage.DisplayAlert(AppName, pEx.Message + "\n" + "App Cannot be used without Location Permission.",
+                var window3 = Application.Current?.Windows?.FirstOrDefault();
+                bool m = await window3?.Page?.DisplayAlert(AppName, pEx.Message + "\n" + "App Cannot be used without Location Permission.",
                     "No Thanks",
                     "Settings");
                 if (m)

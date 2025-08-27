@@ -59,23 +59,35 @@ namespace ResillentConstruction
             Tab_Settings_Label.Text = App.LableText("More");
             Footer_Image_Source = new string[3] { "ic_Homewhite.png", "ic_downloadehite.png", "ic_more.png" };
             Footer_Images[Preferences.Get("Active", 0)].Source = Footer_Image_Source[Preferences.Get("Active", 0)];
-            Footer_Labels[Preferences.Get("Active", 0)].TextColor = Color.FromHex("#0f0f0f");
+            Footer_Labels[Preferences.Get("Active", 0)].TextColor = Color.FromArgb("#FF0F0F0F");
         }
 
         private void Tab_Home_Tapped(object sender, EventArgs e)
         {
             Preferences.Set("Active", 0);
-            Application.Current.MainPage = new NavigationPage(new DashboardPage());
+            var window = Application.Current?.Windows?.FirstOrDefault();
+            if (window != null)
+            {
+                window.Page = new NavigationPage(new DashboardPage());
+            }
         }
         private void Tab_Download_Tapped(object sender, EventArgs e)
         {
             Preferences.Set("Active", 1);
-            Application.Current.MainPage = new NavigationPage(new DownloadPage());
+            var window2 = Application.Current?.Windows?.FirstOrDefault();
+            if (window2 != null)
+            {
+                window2.Page = new NavigationPage(new DownloadPage());
+            }
         }
         private void Tab_Settings_Tapped(object sender, EventArgs e)
         {
             Preferences.Set("Active", 2);
-            Application.Current.MainPage = new NavigationPage(new MorePage());
+            var window3 = Application.Current?.Windows?.FirstOrDefault();
+            if (window3 != null)
+            {
+                window3.Page = new NavigationPage(new MorePage());
+            }
         }
 
         private void Deptt_Call(object sender, EventArgs e)
@@ -125,12 +137,20 @@ namespace ResillentConstruction
             }
             if (Preferences.Get("UserType", "").Equals("Engineer"))
             {
-                Application.Current.MainPage = new NavigationPage(new EngineerDashboardPage());
+                var window4 = Application.Current?.Windows?.FirstOrDefault();
+                if (window4 != null)
+                {
+                    window4.Page = new NavigationPage(new EngineerDashboardPage());
+                }
 
             }
             else
             {
-                Application.Current.MainPage = new NavigationPage(new DashboardPage());
+                var window5 = Application.Current?.Windows?.FirstOrDefault();
+                if (window5 != null)
+                {
+                    window5.Page = new NavigationPage(new DashboardPage());
+                }
 
             }
         }
@@ -149,7 +169,11 @@ namespace ResillentConstruction
             if (m)
             {              
                 saveUserPreferencesDatabase.DeleteSaveUserPreferences();            
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                var window6 = Application.Current?.Windows?.FirstOrDefault();
+                if (window6 != null)
+                {
+                    window6.Page = new NavigationPage(new MainPage());
+                }
             }
         }
 
