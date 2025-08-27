@@ -16,7 +16,6 @@ using System.Security.Cryptography;
 using ResillentConstruction.Models;
 //using static Android.Content.ClipData;
 
-
 namespace ResillentConstruction.webapi
 {
     public class HitServices
@@ -26,109 +25,227 @@ namespace ResillentConstruction.webapi
         string BasicAuth = $"{HttpUtility.UrlEncode(AESCryptography.EncryptAES("ResilientConstruction"))}:{HttpUtility.UrlEncode(AESCryptography.EncryptAES("9kO9E3CP7P8F0823"))}";
 
         public string PrivacyPolicyUrl = "http://10.146.2.8/ResilientConstructionAPI/PrivacyPolicy.aspx";// for login and fetching departments       
-      //  public string baseurl = "http://10.146.2.8/ResilientConstructionAPI/";
-   //     public string queryimageurl = "http://10.146.2.8/ResilientConstructionAPI/QueryImageViewer?";
+       // public string baseurl = "http://10.146.2.8/ResilientConstructionAPI/";       
         public string currentLocationUrl = "https://mobileappshp.nic.in/shereshthhimachal/Initilisation.svc/location?";
 
         public string zoneAurl = "https://hpsdma.nic.in//admnis/admin/showimg.aspx?ID=3667";
         public string zoneBurl = "https://hpsdma.nic.in//admnis/admin/showimg.aspx?ID=3668";
         public string zoneCurl = "https://hpsdma.nic.in//admnis/admin/showimg.aspx?ID=3670";  
         public string kawach2url = "https://hpsdma.nic.in//admnis/admin/showimg.aspx?ID=3671";  
-        public string Constructionpriurl = "https://drive.google.com/file/d/1HC0QfxRdXhdIksQ_Rd86fQb4W5SGEJXB/view?usp=sharing";
+        public static string GetAppVersionDetailsUrl = "https://mobileappshp.nic.in/MyDiary/MobileAppVersions.svc/GetAppVersion?";//App version check
 
         public string guidebookpriurl = "https://hpsdma.nic.in//admnis/admin/showimg.aspx?ID=3671";
-     
-        
-        /* public string zoneAurl = "https://drive.google.com/file/d/1Hu7SD15GszAdXJdGsVQltkLaV_jYVDPI/view?usp=drive_link";
-        public string zoneBurl = "https://drive.google.com/file/d/1hrU_3R7pebN9eXbFlVtSvpRVr7YGFieu/view?usp=drive_link";
-        public string zoneCurl = "https://drive.google.com/file/d/1Q_DWsdkmmhyXN3pcl95k5gU4HiDChkiZ/view?usp=drive_link";
-        public string Constructionpriurl = "https://drive.google.com/file/d/1HC0QfxRdXhdIksQ_Rd86fQb4W5SGEJXB/view?usp=sharing";*/
-
-
-        SaveUserPreferencesDatabase saveUserPreferencesDatabase = new SaveUserPreferencesDatabase();
-        List<SaveUserPreferences> saveUserPreferenceslist;
-        EngineerMasterDatabase engineerMasterDatabase = new EngineerMasterDatabase();
-        EngineerResponseDetailsDatabase engineerResponseDetailsDatabase = new EngineerResponseDetailsDatabase();
-        AreaMasterDatabase areaMasterDatabase = new AreaMasterDatabase();
-        SubAreaMasterDatabase subAreaMasterDatabase = new SubAreaMasterDatabase();
+          public string Constructionpriurl = "https://drive.google.com/file/d/1HC0QfxRdXhdIksQ_Rd86fQb4W5SGEJXB/view?usp=sharing";
         DistrictMasterDatabase districtMasterDatabase = new DistrictMasterDatabase();
         List<DistrictMaster> districtMasters = new List<DistrictMaster>();
         LanguageMasterDatabase languageMasterDatabase = new LanguageMasterDatabase();   
+        SaveUserPreferencesDatabase saveUserPreferencesDatabase = new SaveUserPreferencesDatabase();
 
-        public async void AppVersion()
+
+        public async void update()
         {
-            var current = Connectivity.NetworkAccess;
-            if (current == NetworkAccess.Internet)
+            try
             {
-                try
+                var current = Connectivity.NetworkAccess;
+                if (current == NetworkAccess.Internet)
                 {
-                    var client = new HttpClient();
-                    var byteArray = Encoding.ASCII.GetBytes(Preferences.Get("BasicAuth", "xx:xx"));
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-                    string _Plateform = "A";
-                    if (DevicePlatform.Android == DevicePlatform.Android)
-                    {
-                        _Plateform = "A";
-                    }
-                    else if (DevicePlatform.iOS == DevicePlatform.iOS)
-                    {
-                        _Plateform = "I";
-                    }
                     double installedVersionNumber = double.Parse(VersionTracking.CurrentVersion);
-                    double latestVersionNumber = installedVersionNumber;
 
-                    string parameters = "" + $"api/AppVersion?" +
-                    $"Platform={HttpUtility.UrlEncode(AESCryptography.EncryptAES(_Plateform))}" +
-                    $"&packageid={HttpUtility.UrlEncode(AESCryptography.EncryptAES(AppInfo.PackageName))}";
 
-                    HttpResponseMessage response = await client.GetAsync(parameters);
-                    var result = await response.Content.ReadAsStringAsync();
-                    var parsed = JObject.Parse(result);
+                    var client = new HttpClient();
+                    string CurrentPlateform = "A";
 
-                    if ((int)response.StatusCode == 200)
+                    if (DeviceInfo.Platform == DevicePlatform.iOS)
                     {
-                        if (result.Contains("Mandatory"))
+                        CurrentPlateform = "I";
+                    }
+                    if (DeviceInfo.Platform == DevicePlatform.macOS)
+                    {
+                        CurrentPlateform = "I";
+                    }
+                  
+                    else
+                    {
+                        CurrentPlateform = "A";
+                    }
+
+                    var responce = await client.GetAsync(GetAppVersionDetailsUrl + $"&Platform={CurrentPlateform}&packageid={AppInfo.PackageName}");
+                    var MyJson = await responce.Content.ReadAsStringAsync();
+
+                    JObject parsed = JObject.Parse(MyJson);
+                    var ServiceStatusCode = parsed?["message"]?["status"]?.ToString();
+                    if (ServiceStatusCode == "200")
+                    {
+                        if (MyJson.Contains("Mandatory"))
                         {
-                            var m = parsed["data"][0]["VersionNumber"].ToString();
-                            latestVersionNumber = double.Parse(AESCryptography.DecryptAES(parsed["data"][0]["VersionNumber"].ToString()));
+                            double latestVersionNumber = double.Parse(parsed?["appVersionDetails"]?[0]?["VersionNumber"]?.ToString() ?? "1.0");
+                            string isMandatory = parsed?["appVersionDetails"]?[0]?["Mandatory"]?.ToString() ?? "N";
+                            string whatsNew = parsed?["appVersionDetails"]?[0]?["WhatsNew"]?.ToString() ?? "";
+                            string url = parsed?["appVersionDetails"]?[0]?["Url"]?.ToString() ?? "https://play.google.com/";
+
                             if (installedVersionNumber < latestVersionNumber)
                             {
-                                if (AESCryptography.DecryptAES(parsed["data"][0]["Mandatory"].ToString()) == "Y")
+                                if (isMandatory == "Y")
                                 {
-                                    await Application.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{AESCryptography.DecryptAES(parsed["data"][0]["VersionNumber"].ToString())}) of this app available.\nWhatsNew: {AESCryptography.DecryptAES(parsed["data"][0]["WhatsNew"].ToString())}", "Update");
-                                    await Launcher.OpenAsync(AESCryptography.DecryptAES(parsed["data"][0]["StoreLink"].ToString()));
+                                    // await Application.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}", "Update");
+                                    await App.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}", "Update","Close");
+                                    await Launcher.OpenAsync(url);
+                                    return;
                                 }
                                 else
                                 {
-                                    var update = await Application.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{AESCryptography.DecryptAES(parsed["data"][0]["VersionNumber"].ToString())}) of this app available.\nWhatsNew: {AESCryptography.DecryptAES(parsed["data"][0]["WhatsNew"].ToString())}\nWould you like to update now?", "Yes", "No");
-                                    if (update)
-                                    {
-                                        await Launcher.OpenAsync(AESCryptography.DecryptAES(parsed["data"][0]["StoreLink"].ToString()));
-                                    }
+
+                                    //var updat = await Application.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}\nWould you like to update now?", "Yes", "No");                                  
+                                  
+                                            var updat = await App.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}\nWould you like to update now?", "Yes", "No");
+                                            if (updat)
+                                            {
+                                                await Launcher.OpenAsync(url);
+                                            }
+                                       
+                                    
+
                                 }
                             }
                         }
                     }
-                    //else if ((int)response.StatusCode != 404)
-                    //{
-                    //    await App.Current.MainPage.DisplayAlert(AppName, parsed["Message"].ToString(), App.GetLabelByKey("close"));
-                    //}
-                    //return (int)response.StatusCode;
-                }
-                catch (Exception)
-                {
-                    //await App.Current.MainPage.DisplayAlert("Exception", "Something went wrong. Please try again!", "OK");
-                    //return 500;
                 }
             }
-            else
+            catch
             {
-                //await App.Current.MainPage.DisplayAlert(AppName, App.NoInternet_, App.GetLabelByKey("close"));
-                //return 101;
             }
         }
 
-     
+        /*  public async void AppVersion()
+          {
+              var current = Connectivity.NetworkAccess;
+              if (current == NetworkAccess.Internet)
+              {
+                  try
+                  {
+                      var client = new HttpClient();
+                      var byteArray = Encoding.ASCII.GetBytes(Preferences.Get("BasicAuth", "xx:xx"));
+                      client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+                      string _Plateform = "A";
+                      if (DevicePlatform.Android == DevicePlatform.Android)
+                      {
+                          _Plateform = "A";
+                      }
+                      else if (DevicePlatform.iOS == DevicePlatform.iOS)
+                      {
+                          _Plateform = "I";
+                      }
+                      double installedVersionNumber = double.Parse(VersionTracking.CurrentVersion);
+                      double latestVersionNumber = installedVersionNumber;
+
+                      string parameters = GetAppVersionDetailsUrl + $"api/AppVersion?" +
+                      $"Platform={HttpUtility.UrlEncode(AESCryptography.EncryptAES(_Plateform))}" +
+                      $"&packageid={HttpUtility.UrlEncode(AESCryptography.EncryptAES(AppInfo.PackageName))}";
+
+                      HttpResponseMessage response = await client.GetAsync(parameters);
+                      var result = await response.Content.ReadAsStringAsync();
+                      var parsed = JObject.Parse(result);
+
+                      if ((int)response.StatusCode == 200)
+                      {
+                          if (result.Contains("Mandatory"))
+                          {
+                              var m = parsed["data"][0]["VersionNumber"].ToString();
+                              latestVersionNumber = double.Parse(AESCryptography.DecryptAES(parsed["data"][0]["VersionNumber"].ToString()));
+                              if (installedVersionNumber < latestVersionNumber)
+                              {
+                                  if (AESCryptography.DecryptAES(parsed["data"][0]["Mandatory"].ToString()) == "Y")
+                                  {
+                                      await Application.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{AESCryptography.DecryptAES(parsed["data"][0]["VersionNumber"].ToString())}) of this app available.\nWhatsNew: {AESCryptography.DecryptAES(parsed["data"][0]["WhatsNew"].ToString())}", "Update");
+                                      await Launcher.OpenAsync(AESCryptography.DecryptAES(parsed["data"][0]["StoreLink"].ToString()));
+                                  }
+                                  else
+                                  {
+                                      var update = await Application.Current.MainPage.DisplayAlert("New Version", $"There is a new version (v{AESCryptography.DecryptAES(parsed["data"][0]["VersionNumber"].ToString())}) of this app available.\nWhatsNew: {AESCryptography.DecryptAES(parsed["data"][0]["WhatsNew"].ToString())}\nWould you like to update now?", "Yes", "No");
+                                      if (update)
+                                      {
+                                          await Launcher.OpenAsync(AESCryptography.DecryptAES(parsed["data"][0]["StoreLink"].ToString()));
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                      //else if ((int)response.StatusCode != 404)
+                      //{
+                      //    await App.Current.MainPage.DisplayAlert(AppName, parsed["Message"].ToString(), App.GetLabelByKey("close"));
+                      //}
+                      //return (int)response.StatusCode;
+                  }
+                  catch (Exception)
+                  {
+                      //await App.Current.MainPage.DisplayAlert("Exception", "Something went wrong. Please try again!", "OK");
+                      //return 500;
+                  }
+              }
+              else
+              {
+                  //await App.Current.MainPage.DisplayAlert(AppName, App.NoInternet_, App.GetLabelByKey("close"));
+                  //return 101;
+              }
+          }*/
+
+        /*   public async Task<int> LocalResources_Get()
+           {
+               var current = Connectivity.NetworkAccess;
+               if (current == NetworkAccess.Internet)
+               {
+                   try
+                   {
+                       var client = new HttpClient();
+                       var byteArray = Encoding.ASCII.GetBytes(BasicAuth);
+                       client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+                       HttpResponseMessage response = await client.GetAsync(baseurl + $"api/LocalResources");
+
+                       var result = await response.Content.ReadAsStringAsync();
+                       var parsed = JObject.Parse(result);
+                       languageMasterDatabase.DeleteLanguageMaster();
+                       if ((int)response.StatusCode == 200)
+                       {
+                           foreach (var pair in parsed)
+                           {
+                               if (pair.Key == "data")
+                               {
+                                   var nodes = pair.Value;
+                                   foreach (var node in nodes)
+                                   {
+                                       var item = new LanguageMaster();
+                                       item.MultipleResourceKey = AESCryptography.DecryptAES(node["MultipleResourceKey"].ToString());
+                                       item.ResourceKey = AESCryptography.DecryptAES(node["ResourceKey"].ToString());
+                                       item.ResourceValue = AESCryptography.DecryptAES(node["ResourceValue"].ToString());
+                                       item.LocalResourceValue = AESCryptography.DecryptAES(node["LocalResourceValue"].ToString());
+                                       item.Sequence = AESCryptography.DecryptAES(node["Sequence"].ToString());
+                                       languageMasterDatabase.AddLanguageMaster(item);
+                                   }
+                               }
+                           }
+                           App.MyLanguage = languageMasterDatabase.GetLanguageMaster($"select * from  LanguageMaster").ToList();
+                           //App.MyLanguage = languageMasterDatabase.GetLanguageMaster($"select ResourceKey, (case when ({App.Language} = 0) then ResourceValue else LocalResourceValue end)ResourceValue from  LanguageMaster").ToList();
+
+                       }
+                       else if ((int)response.StatusCode == 404)
+                       {
+                           await Application.Current.MainPage.DisplayAlert(AppName, parsed["Message"].ToString(), "Close");
+                       }
+                       return (int)response.StatusCode;
+                   }
+                   catch
+                   {
+                       await Application.Current.MainPage.DisplayAlert("Exception", "Something went wrong. Please try again!", "OK");
+                       return 500;
+                   }
+               }
+               else
+               {
+                   await Application.Current.MainPage.DisplayAlert(AppName, NoInternet_, "Close");
+                   return 101;
+               }
+           }*/
 
         //get current district from shreshth himachal
         public async Task<int> getcuurentdistrict(string latitu, string longitu)
@@ -207,24 +324,13 @@ namespace ResillentConstruction.webapi
             }
             return encryptText;
         }
-/*
-        public async Task<int> SaveUserDetails(string UserId, string UserName, string Mobile, string Email, string DistrictCode, string zonecode,
+
+
+
+       /* public async Task<int> SaveUserDetails(string UserId, string UserName, string Mobile, string Email, string DistrictCode, string zonecode,
             string DistrictName, string zonename, string placeofconstruction, string DistrictNameLocal)
         {
-            int statusCode;
-            *//*  saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
-
-              string UserId = saveUserPreferenceslist.ElementAt(0).UserID;
-              string UserName = saveUserPreferenceslist.ElementAt(0).Name;
-              string Mobile = saveUserPreferenceslist.ElementAt(0).Mobile;
-              string Email = saveUserPreferenceslist.ElementAt(0).email;
-              string DistrictCode = saveUserPreferenceslist.ElementAt(0).DistrictID;
-              string zonecode = saveUserPreferenceslist.ElementAt(0).zonecode;
-              string DistrictName = saveUserPreferenceslist.ElementAt(0).DistrictName;
-              string zonename = saveUserPreferenceslist.ElementAt(0).zonename;
-              string placeofconstruction = saveUserPreferenceslist.ElementAt(0).placeofconstruction;*//*
-
-
+            int statusCode;         
 
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.Internet)
@@ -294,69 +400,7 @@ namespace ResillentConstruction.webapi
             }
         }
 
-        public async Task<int> Saveuserquery(string engineerid, string expertisearea, string subarea, string userremarks, Stream _file)
-        {
-            saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
-            string UserId = saveUserPreferenceslist.ElementAt(0).UserID;
-
-            var current = Connectivity.NetworkAccess;
-            if (current == NetworkAccess.Internet)
-            {
-                try
-                {
-                    var client = new HttpClient();
-                    var request = new HttpRequestMessage(HttpMethod.Post, baseurl + "api/UserquerywithImage");
-                    var byteArray = Encoding.ASCII.GetBytes(BasicAuth);
-
-                    client.DefaultRequestHeaders.Add("Accept", "application/json");
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-
-                    var content = new MultipartFormDataContent();
-
-                    content.Add(new StringContent(AESCryptography.EncryptAES(UserId)), "UserId");
-                    content.Add(new StringContent(AESCryptography.EncryptAES(engineerid)), "engineerid");
-                    content.Add(new StringContent(AESCryptography.EncryptAES(expertisearea)), "expertisearea");
-                    content.Add(new StringContent(AESCryptography.EncryptAES(subarea)), "subarea");
-                    content.Add(new StringContent(AESCryptography.EncryptAES(userremarks)), "userremarks");
-
-                    if (_file != null)
-                    {
-                        content.Add(new StreamContent(_file), "file", "mepj");
-                    }
-
-                    string b = "UserId: " + UserId + "\n" +
-                            "engineerid:" + engineerid + "\n" +
-                            "expertisearea:" + expertisearea + "\n" +
-                              "subarea:" + subarea + "\n" +
-                            "userremarks:" + userremarks + "\n" +
-                            "file:" + _file ?? "";
-                    request.Content = content;
-                    var response = await client.SendAsync(request);
-                    response.EnsureSuccessStatusCode();
-
-
-                    var result = await response.Content.ReadAsStringAsync();
-                    var parsed = JObject.Parse(result);
-                    if ((int)response.StatusCode == 200)
-                    {
-                        Preferences.Set("queryid", parsed["queryid"].ToString());
-                    }
-                    await Application.Current.MainPage.DisplayAlert(AppName, parsed["Message"].ToString(), "Close");
-                    return (int)response.StatusCode;
-                }
-                catch
-                {
-                    await App.Current.MainPage.DisplayAlert("Exception", "Something went wrong. Please try again!", "OK");
-                    return 500;
-                }
-            }
-            else
-            {
-                await App.Current.MainPage.DisplayAlert(AppName, NoInternet_, "Close");
-                return 101;
-            }
-        }
-        public async Task<int> getDistrictMaster()
+         public async Task<int> getDistrictMaster()
         {
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.Internet)
@@ -391,256 +435,6 @@ namespace ResillentConstruction.webapi
                                 }
                             }
                         }
-                    }
-                    else if ((int)response.StatusCode == 404)
-                    {
-                        await Application.Current.MainPage.DisplayAlert(AppName, parsed["Message"].ToString(), ("close"));
-                    }
-                    return (int)response.StatusCode;
-                }
-                catch
-                {
-                    await Application.Current.MainPage.DisplayAlert("Exception", "Something went wrong. Please try again!", "OK");
-                    return 500;
-                }
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert(AppName, NoInternet_, "close");
-                return 101;
-            }
-        }
-
-
-        public async Task<int> EngineerMaster_Get()
-        {
-            var current = Connectivity.NetworkAccess;
-            if (current == NetworkAccess.Internet)
-            {
-                try
-                {
-                    var client = new HttpClient();
-                    var byteArray = Encoding.ASCII.GetBytes(BasicAuth);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-
-                    HttpResponseMessage response = await client.GetAsync(baseurl + $"api/EngineerMaster");
-
-                    var result = await response.Content.ReadAsStringAsync();
-                    var parsed = JObject.Parse(result);
-                    engineerMasterDatabase.DeleteEngineerMaster();
-                    if ((int)response.StatusCode == 200)
-                    {
-                        foreach (var pair in parsed)
-                        {
-                            if (pair.Key == "data")
-                            {
-                                var nodes = pair.Value;
-                                foreach (var node in nodes)
-                                {
-                                    var item = new EngineerMaster();
-                                    item.engineerid = AESCryptography.DecryptAES(node["engineerid"].ToString());
-                                    item.engineername = AESCryptography.DecryptAES(node["engineername"].ToString());
-                                    item.email = AESCryptography.DecryptAES(node["email"].ToString());
-                                    item.mobile = AESCryptography.DecryptAES(node["mobile"].ToString());
-                                    item.expertisearea = AESCryptography.DecryptAES(node["expertisearea"].ToString());
-                                    item.enginnerzone = AESCryptography.DecryptAES(node["enginnerzone"].ToString());
-                                    engineerMasterDatabase.AddEngineerMaster(item);
-                                }
-                            }
-                        }
-
-
-                    }
-                    else if ((int)response.StatusCode == 404)
-                    {
-                        await Application.Current.MainPage.DisplayAlert(AppName, parsed["Message"].ToString(), ("close"));
-                    }
-                    return (int)response.StatusCode;
-                }
-                catch
-                {
-                    await Application.Current.MainPage.DisplayAlert("Exception", "Something went wrong. Please try again!", "OK");
-                    return 500;
-                }
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert(AppName, NoInternet_, "close");
-                return 101;
-            }
-        }
-
-        public async Task<int> EngineerResponseDetails_Get()
-        {
-            saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
-
-            string UserId = saveUserPreferenceslist.ElementAt(0).UserID;
-
-            var current = Connectivity.NetworkAccess;
-            if (current == NetworkAccess.Internet)
-            {
-                try
-                {
-                    var client = new HttpClient();
-                    var byteArray = Encoding.ASCII.GetBytes(BasicAuth);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-                    string url = baseurl + $"api/EngineerResponse?userid=" + HttpUtility.UrlEncode(AESCryptography.EncryptAES(UserId));
-                    HttpResponseMessage response = await client.GetAsync(url);
-
-                    var result = await response.Content.ReadAsStringAsync();
-                    var parsed = JObject.Parse(result);
-                    engineerResponseDetailsDatabase.DeleteEngineerResponseDetails();
-                    if ((int)response.StatusCode == 200)
-                    {
-                        foreach (var pair in parsed)
-                        {
-                            if (pair.Key == "data")
-                            {
-                                var nodes = pair.Value;
-                                foreach (var node in nodes)
-                                {
-                                    var item = new EngineerResponseDetails();
-
-                                    item.responseid = AESCryptography.DecryptAES(node["responseid"].ToString());
-                                    item.queryid = AESCryptography.DecryptAES(node["queryid"].ToString());
-                                    item.engineerid = AESCryptography.DecryptAES(node["engineerid"].ToString());
-                                    item.engineername = AESCryptography.DecryptAES(node["engineername"].ToString());
-                                    item.engineerremarks = AESCryptography.DecryptAES(node["engineerremarks"].ToString());
-                                    item.engineerresponsedate = AESCryptography.DecryptAES(node["engineerresponsedate"].ToString());
-                                    item.userid = AESCryptography.DecryptAES(node["userid"].ToString());
-                                    item.userremarks = AESCryptography.DecryptAES(node["userremarks"].ToString());
-                                    item.userquerydate = AESCryptography.DecryptAES(node["userquerydate"].ToString());
-                                    item.engineeremail = AESCryptography.DecryptAES(node["engineeremail"].ToString());
-                                    item.engineermobile = AESCryptography.DecryptAES(node["engineermobile"].ToString());
-                                    item.hasimage = AESCryptography.DecryptAES(node["hasimage"].ToString());
-                                    item.areaid = AESCryptography.DecryptAES(node["areaid"].ToString());
-                                    item.expertisearea = AESCryptography.DecryptAES(node["expertisearea"].ToString());
-                                    item.expertisearealocal = AESCryptography.DecryptAES(node["expertisearealocal"].ToString());
-                                    item.subareaid = AESCryptography.DecryptAES(node["subareaid"].ToString());
-                                    item.subarename = AESCryptography.DecryptAES(node["subarename"].ToString());
-                                    item.subarenamelocal = AESCryptography.DecryptAES(node["subarenamelocal"].ToString());
-
-                                    engineerResponseDetailsDatabase.AddEngineerResponseDetails(item);
-                                }
-                            }
-                        }
-                    }
-                    else if ((int)response.StatusCode == 404)
-                    {
-                        await Application.Current.MainPage.DisplayAlert(AppName, parsed["Message"].ToString(), ("close"));
-                    }
-                    return (int)response.StatusCode;
-                }
-                catch 
-                {
-                    await Application.Current.MainPage.DisplayAlert("Exception", "Something went wrong. Please try again!", "OK");
-                    return 500;
-                }
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert(AppName, NoInternet_, "close");
-                return 101;
-            }
-        }
-
-        public async Task<int> AreaMaster_Get()
-        {
-
-            var current = Connectivity.NetworkAccess;
-            if (current == NetworkAccess.Internet)
-            {
-                try
-                {
-                    var client = new HttpClient();
-                    var byteArray = Encoding.ASCII.GetBytes(BasicAuth);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-                    string url = baseurl + $"api/RelateToAreaMaster?";
-                    HttpResponseMessage response = await client.GetAsync(url);
-
-                    var result = await response.Content.ReadAsStringAsync();
-                    var parsed = JObject.Parse(result);
-                    areaMasterDatabase.DeleteAreaMaster();
-                    if ((int)response.StatusCode == 200)
-                    {
-                        foreach (var pair in parsed)
-                        {
-                            if (pair.Key == "data")
-                            {
-                                var nodes = pair.Value;
-                                foreach (var node in nodes)
-                                {
-                                    var item = new AreaMaster();
-
-                                    item.areaid = AESCryptography.DecryptAES(node["areaid"].ToString());
-                                    item.areaname = AESCryptography.DecryptAES(node["areaname"].ToString());
-                                    item.areanamelocal = AESCryptography.DecryptAES(node["areanamelocal"].ToString());
-
-                                    areaMasterDatabase.AddAreaMaster(item);
-                                }
-                            }
-                        }
-
-
-                    }
-                    else if ((int)response.StatusCode == 404)
-                    {
-                        await Application.Current.MainPage.DisplayAlert(AppName, parsed["Message"].ToString(), ("close"));
-                    }
-                    return (int)response.StatusCode;
-                }
-                catch
-                {
-                    await Application.Current.MainPage.DisplayAlert("Exception", "Something went wrong. Please try again!", "OK");
-                    return 500;
-                }
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert(AppName, NoInternet_, "close");
-                return 101;
-            }
-        }
-
-        public async Task<int> SubAreaMaster_Get()
-        {
-
-            var current = Connectivity.NetworkAccess;
-            if (current == NetworkAccess.Internet)
-            {
-                try
-                {
-                    var client = new HttpClient();
-                    var byteArray = Encoding.ASCII.GetBytes(BasicAuth);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-                    string url = baseurl + $"api/RelateToSubAreaMaster?";
-                    HttpResponseMessage response = await client.GetAsync(url);
-
-                    var result = await response.Content.ReadAsStringAsync();
-                    var parsed = JObject.Parse(result);
-                    subAreaMasterDatabase.DeleteSubAreaMaster();
-                    if ((int)response.StatusCode == 200)
-                    {
-                        foreach (var pair in parsed)
-                        {
-                            if (pair.Key == "data")
-                            {
-                                var nodes = pair.Value;
-                                foreach (var node in nodes)
-                                {
-                                    var item = new SubAreaMaster();
-
-                                    item.areaid = AESCryptography.DecryptAES(node["areaid"].ToString());
-                                    item.subareaid = AESCryptography.DecryptAES(node["subareaid"].ToString());
-                                    item.subareaname = AESCryptography.DecryptAES(node["subareaname"].ToString());
-                                    item.subareanamelocal = AESCryptography.DecryptAES(node["subareanamelocal"].ToString());
-
-                                    subAreaMasterDatabase.AddSubAreaMaster(item);
-                                }
-                            }
-                        }
-
-
                     }
                     else if ((int)response.StatusCode == 404)
                     {
