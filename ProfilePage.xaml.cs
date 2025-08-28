@@ -34,6 +34,7 @@ namespace ResillentConstruction
 
             Dispatcher.Dispatch(async () =>
             {
+                language();
                 Loading_activity.IsVisible = true;
 
                 // Ensure districts are loaded and bind Picker once
@@ -285,8 +286,10 @@ namespace ResillentConstruction
         {
             try
             {
+                lbl_PleaseWait.Text = "Getting district as per your location...";
                 Loading_activity.IsVisible = true;
                 await App.GetLocation();
+                lbl_PleaseWait.Text = "Resolving district...";
                 var sevice = new HitServices();
                 int responselocation = await sevice.getcuurentdistrict(App.Latitude.ToString(), App.Longitude.ToString());
                 if (responselocation == 200)
@@ -310,6 +313,7 @@ namespace ResillentConstruction
             }
             finally
             {
+                lbl_PleaseWait.Text = "Please Wait ...";
                 Loading_activity.IsVisible = false;
             }
         }

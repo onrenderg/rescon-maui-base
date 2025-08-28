@@ -41,7 +41,15 @@
                         <Label x:Name="lbl_District" Text="District *" FontSize="20"   FontAttributes="Bold"   />
                         <Grid ColumnDefinitions="*,Auto">
                             <Picker Title="Select District" x:Name="Picker_District" SelectedIndexChanged="Picker_District_SelectedIndexChanged" Grid.Column="0" FontSize="20" />
-                            <Button x:Name="Btn_getdistrict" Text="Get District" Clicked="Btn_getdistrict_Clicked" BackgroundColor="Navy" TextColor="White" FontAttributes="Bold" Grid.Column="1" IsVisible="False" />
+                            <Button x:Name="Btn_getdistrict"
+                            ImageSource="location_searching.png"
+                            Clicked="Btn_getdistrict_Clicked"
+                            BackgroundColor="Navy"
+                            TextColor="White"
+                            Grid.Column="1"
+                            IsVisible="False"
+                            ContentLayout="Left,10" />
+
                         </Grid>
 
                         <Label  x:Name="lbl_fallinzone" Text="You fall in Zone : " FontSize="20" HorizontalOptions="Center"   FontAttributes="Bold"  />
@@ -63,9 +71,16 @@
         <ContentView x:Name="Loading_activity" BackgroundColor="#C0808080" Padding="20, 20" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
                 <Frame  HorizontalOptions="FillAndExpand">
-                    <StackLayout Orientation="Horizontal" Margin="6" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" Margin="6" HorizontalOptions="FillAndExpand" Spacing="10" Padding="4,0">
                         <ActivityIndicator IsVisible="true" IsRunning="true" Margin="5"/>
-                        <Label x:Name="lbl_PleaseWait" Text="Please Wait ..." TextColor="Black" FontAttributes="Bold" HorizontalOptions="FillAndExpand" WidthRequest="600" VerticalTextAlignment="Center"/>
+                        <Label x:Name="lbl_PleaseWait"
+                               Text="Please Wait ..."
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalTextAlignment="Center"
+                               LineBreakMode="WordWrap"
+                               MaxLines="3"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
