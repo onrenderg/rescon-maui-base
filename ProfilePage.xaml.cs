@@ -28,6 +28,11 @@ namespace ResillentConstruction
         public ProfilePage()
         {
             InitializeComponent();
+            // Ensure language has a sane default on first run
+            if (string.IsNullOrWhiteSpace(Preferences.Get("lan", string.Empty)))
+            {
+                Preferences.Set("lan", "EN-IN");
+            }
             language();
 
             lbl_navigation_header.Text = App.LableText("lbl_navigation_header");
@@ -83,7 +88,7 @@ namespace ResillentConstruction
                 loaddata();
 
                 // Update the GPS label using either Preferences or current DistrictName
-                if (Preferences.Get("lan", "").Equals("EN-IN"))
+                if (Preferences.Get("lan", "EN-IN").Equals("EN-IN"))
                 {
                     lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + Preferences.Get("DistrictName", DistrictName) + "'";
                 }
