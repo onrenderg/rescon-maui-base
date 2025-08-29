@@ -11,7 +11,7 @@
             <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="0">
                 <Label  x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
             </StackLayout>
-            <Image Source="ic_launcher.png"  HeightRequest="50"  VerticalOptions="CenterAndExpand"/>
+            <!-- <Image Source="ic_launcher.png"  HeightRequest="50"  VerticalOptions="CenterAndExpand"/> -->
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
@@ -22,8 +22,13 @@
     <Grid>
         <StackLayout Spacing="3" Padding="5">
 
-            <StackLayout Orientation="Horizontal"  >
-                <StackLayout HorizontalOptions="FillAndExpand"  BackgroundColor="#c4913f">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                
+                <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" BackgroundColor="#c4913f">
                     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Orientation="Horizontal">
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="imgbtn_profile_Clicked"/>
@@ -40,8 +45,9 @@
                     FontAttributes="Bold" FontSize="18"/>
                     </StackLayout>
                 </StackLayout>
-                <ImageButton x:Name="img_language" Source="language_ico.png" BackgroundColor="Transparent" Clicked="img_language_Clicked" HeightRequest="40"  Padding="3"  />
-            </StackLayout>
+                
+                <ImageButton Grid.Column="1" x:Name="img_language" Source="language_ico.png" BackgroundColor="Transparent" Clicked="img_language_Clicked" HeightRequest="40" Padding="3"/>
+            </Grid>
 
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
