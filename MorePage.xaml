@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ResillentConstruction.MorePage"
@@ -18,14 +18,14 @@
 
 
     <Grid>
-        <StackLayout >
-
-            <ScrollView VerticalOptions="FillAndExpand" >
-                <StackLayout >
-
-                    <StackLayout>
-
-                        <StackLayout Margin="0"  >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <ScrollView Grid.Row="0" VerticalOptions="FillAndExpand">
+                <StackLayout Margin="0" Spacing="10" VerticalOptions="FillAndExpand">
                             <Image Source="ic_launcher" HorizontalOptions="Center" WidthRequest="130" HeightRequest="100" />
                             <Label  x:Name="lbl_appname" FontSize="Large"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
                             <Label x:Name="lbl_appversion" FontSize="Small"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
@@ -35,7 +35,7 @@
                                 <Label x:Name="lbl_dept" Text="Himachal Pradesh State Disaster Management Authority (HPSDMA), Shimla"  FontSize="17" FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Margin="5,0,0,0"/>
                                 <!--&#10;-->
                             </StackLayout>
-                            <StackLayout Orientation="Horizontal" Padding="5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="Deptt_Call"
@@ -43,11 +43,10 @@
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_phone" HeightRequest="20"/>
                                 <Label x:Name="lbl_call"  Text="Call Us"  HorizontalOptions="FillAndExpand" FontSize="16" FontAttributes="Bold"/>
-
                             </StackLayout>
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
 
-                            <StackLayout Orientation="Horizontal" Padding="5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="deptt_WebSite"
@@ -55,11 +54,10 @@
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_website" HeightRequest="20"/>
                                 <Label x:Name="lbl_website" Text="Website"   HorizontalOptions="FillAndExpand"  FontSize="16" FontAttributes="Bold"/>
-
                             </StackLayout>
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
 
-                            <StackLayout Orientation="Horizontal" Padding="5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="Deptt_email"
@@ -67,12 +65,11 @@
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_email" HeightRequest="20"/>
                                 <Label x:Name="lbl_email" Text="Email"  HorizontalOptions="FillAndExpand"  FontSize="16" FontAttributes="Bold"/>
-
                             </StackLayout>
 
 
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
-                            <StackLayout Orientation="Horizontal" Padding="5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="policytapped"
@@ -117,7 +114,7 @@
                             </StackLayout>-->
 
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
-                            <StackLayout Orientation="Horizontal" Padding="5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="languagetapped"
@@ -128,7 +125,7 @@
                             </StackLayout>
 
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
-                            <StackLayout x:Name="stack_profile" Orientation="Horizontal" Padding="5">
+                            <StackLayout x:Name="stack_profile" Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                   Tapped="profiletapped"
@@ -140,17 +137,11 @@
 
 
 
-                            <Image  Source="niclogo.png" HorizontalOptions="Center" WidthRequest="130" HeightRequest="50" ></Image>
-                        </StackLayout>
-
-
-                    </StackLayout>
-
+                            <Image Source="niclogo.png" HorizontalOptions="Center" WidthRequest="130" HeightRequest="50" Margin="0,20,0,0" />
                 </StackLayout>
             </ScrollView>
 
-
-            <Grid VerticalOptions="End" Style="{StaticResource FooterGridStyle}" >
+            <Grid Grid.Row="1" VerticalOptions="End" Style="{StaticResource FooterGridStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -186,13 +177,7 @@
                 </StackLayout>
 
             </Grid>
-
-
-
-        </StackLayout>
-
-
-
+        </Grid>
 
         <ContentView x:Name="Loading_activity" BackgroundColor="#C0808080" Padding="20, 20" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
