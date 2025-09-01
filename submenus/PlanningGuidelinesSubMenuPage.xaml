@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ResillentConstruction.submenus.PlanningGuidelinesSubMenuPage"
@@ -35,67 +35,67 @@
                             <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" x:Name="lbl_header_submenu"  TextColor="White" BackgroundColor="#2196f3" FontAttributes="Bold" FontSize="20"/>
                         </StackLayout>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_FormandOrientation_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="Btn_FormandOrientation" x:Name="Btn_FormandOrientation"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Btn_FormandOrientation" x:Name="Btn_FormandOrientation"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_InternalPlanning_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="Roof Slab" x:Name="Btn_InternalPlanning"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Roof Slab" x:Name="Btn_InternalPlanning"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_requirementsofthebuilding_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="Btn_requirementsofthebuilding" x:Name="Btn_requirementsofthebuilding"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Btn_requirementsofthebuilding" x:Name="Btn_requirementsofthebuilding"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_DoorsandWindows_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="Btn_DoorsandWindows" x:Name="Btn_DoorsandWindows"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Btn_DoorsandWindows" x:Name="Btn_DoorsandWindows"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_PracticesForConstruction_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="Btn_PracticesForConstruction" x:Name="Btn_PracticesForConstruction"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Btn_PracticesForConstruction" x:Name="Btn_PracticesForConstruction"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_BuildingLayout_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="Btn_BuildingLayout" x:Name="Btn_BuildingLayout"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Btn_BuildingLayout" x:Name="Btn_BuildingLayout"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
                     </StackLayout>
                 </StackLayout>

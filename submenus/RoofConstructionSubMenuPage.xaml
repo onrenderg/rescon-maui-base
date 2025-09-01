@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ResillentConstruction.submenus.RoofConstructionSubMenuPage"
@@ -35,46 +35,46 @@
                             <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" x:Name="lbl_header_submenu"  TextColor="White" BackgroundColor="#2196f3" FontAttributes="Bold" FontSize="20"/>
                         </StackLayout>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_GeneralInstructions_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="General Instructions" x:Name="Btn_GeneralInstructions"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="General Instructions" x:Name="Btn_GeneralInstructions"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_RoofSlab_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="Roof Slab" x:Name="Btn_RoofSlab"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Roof Slab" x:Name="Btn_RoofSlab"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_WoodenRoof_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="Wooden Roof" x:Name="Btn_WoodenRoof"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Wooden Roof" x:Name="Btn_WoodenRoof"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_RoofInsulation_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="40" HorizontalOptions="Start"/>
-                                <Label  Text="Roof Insulation" x:Name="Btn_RoofInsulation"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Roof Insulation" x:Name="Btn_RoofInsulation"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="20" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
 
 

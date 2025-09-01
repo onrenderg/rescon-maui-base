@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ResillentConstruction.SafetyTipsPage"
@@ -25,76 +25,97 @@
                 <StackLayout>
                     <StackLayout Orientation="Vertical" Margin="0,5,0,0">
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_EarthQuakeSafetyTips_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
                                 <Label  Text="EarthQuake Safety Tips" x:Name="Btn_EarthQuakeSafetyTips"  VerticalTextAlignment="Center" 
-                                        HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                        HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold"/>
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_FireAwarenessSafetyTips_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="Fire Awareness Safety Tips" x:Name="Btn_FireAwarenessSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Fire Awareness Safety Tips" x:Name="Btn_FireAwarenessSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold"/>
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_FloodSafetyTips_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="Flood Safety Tips" x:Name="Btn_FloodSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Flood Safety Tips" x:Name="Btn_FloodSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold"/>
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_LandSlideReadyReckonerSafetyTips_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="Land Slide Ready Reckoner" x:Name="Btn_LandSlideReadyReckonerSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Land Slide Ready Reckoner" x:Name="Btn_LandSlideReadyReckonerSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold"/>
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_LandSlidesSafetyTips_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="LandSlides" x:Name="Btn_LandSlidesSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="LandSlides" x:Name="Btn_LandSlidesSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold"/>
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_ColdWaveSafetyTips_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="ColdWave" x:Name="Btn_ColdWaveSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="ColdWave" x:Name="Btn_ColdWaveSafetyTips"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold"/>
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_ColdWaveFrost_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="Cold Wave/Frost" x:Name="Btn_ColdWaveFrost"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Cold Wave/Frost" x:Name="Btn_ColdWaveFrost"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold"/>
                             </StackLayout>
-                        </Frame>
+                        </Border>
                         
                     </StackLayout>
                 </StackLayout>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ResillentConstruction.MoreGuidelinesPage"
@@ -25,83 +25,83 @@
                 <StackLayout>
                     <StackLayout Orientation="Vertical" Margin="0,5,0,0">
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_masonguide_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
                                 <Label  Text="Mason's guide for construction of Non-Engineered buildings(Bilingual)" x:Name="Btn_masonguide"  VerticalTextAlignment="Center" 
-                                        HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                        HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_Ownersguide_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="Owner's guide for construction of Non-Engineered buildings" x:Name="Btn_Ownersguide"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Owner's guide for construction of Non-Engineered buildings" x:Name="Btn_Ownersguide"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>   
+                        </Border>   
                         
                         
                 
 
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_dwellingunitforSeismiczone_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="A typical design of small dwelling unit for Seismic zone" x:Name="Btn_dwellingunitforSeismiczone"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="A typical design of small dwelling unit for Seismic zone" x:Name="Btn_dwellingunitforSeismiczone"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_EarthQuakeResistantConstructionIV_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="EarthQuake Resistant Construction IV" x:Name="Btn_EarthQuakeResistantConstructionIV"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="EarthQuake Resistant Construction IV" x:Name="Btn_EarthQuakeResistantConstructionIV"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_GuideForEarthquakeRetrofitting_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="Guide For Earthquake Retrofitting" x:Name="Btn_GuideForEarthquakeRetrofitting"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Guide For Earthquake Retrofitting" x:Name="Btn_GuideForEarthquakeRetrofitting"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_RetrofittingGuidelines_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="Retrofitting Guidelines" x:Name="Btn_RetrofittingGuidelines"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Retrofitting Guidelines" x:Name="Btn_RetrofittingGuidelines"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_SimplifiedGuidelineZoneV_Clicked" NumberOfTapsRequired="1"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
-                                <Label  Text="Simplified Guideline Zone V" x:Name="Btn_SimplifiedGuidelineZoneV"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                <Label  Text="Simplified Guideline Zone V" x:Name="Btn_SimplifiedGuidelineZoneV"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
 
-                        <Frame Padding="1" Margin="2"  CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="#058ef2" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Border Stroke="#058ef2" StrokeThickness="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
                             <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="7">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Btn_EvolvingStrategyPanchayatlevel_Clicked" NumberOfTapsRequired="1"/>
@@ -109,9 +109,9 @@
                                 <Image Source="ic_details.png" HeightRequest="50" HorizontalOptions="Start"/>
                                 <Label  
                                     Text="Evolving Strategy for Capacity Building of Masons, Carpenters and Wire Binders at Panchayat level for safe construction" 
-                                    x:Name="Btn_EvolvingStrategyPanchayatlevel"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy"/>
+                                    x:Name="Btn_EvolvingStrategyPanchayatlevel"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
 
                        
                     </StackLayout>
