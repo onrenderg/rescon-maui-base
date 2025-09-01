@@ -14,8 +14,13 @@
             
         </StackLayout>
     </NavigationPage.TitleView>
+   
     <ContentPage.ToolbarItems>
-        <ToolbarItem  IconImageSource="language_ico.png" Clicked="ToolbarItem_Clicked"/>
+    <ToolbarItem Clicked="ToolbarItem_Clicked">
+        <ToolbarItem.IconImageSource>
+            <AppThemeBinding Light="language_ico.png" Dark="white_language_ico.png" />
+        </ToolbarItem.IconImageSource>
+    </ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <Grid>
