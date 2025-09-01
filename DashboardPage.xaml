@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ResillentConstruction.DashboardPage"
@@ -22,22 +22,24 @@
     <Grid>
         <StackLayout Spacing="3" Padding="5">
 
-            <Grid>
+            <Grid BackgroundColor="#c4913f" HeightRequest="80">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="90*"/>
-                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="15*"/>
                 </Grid.ColumnDefinitions>
                 
-                <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" BackgroundColor="#c4913f">
-                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Orientation="Horizontal">
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="imgbtn_profile_Clicked"/>
-                        </StackLayout.GestureRecognizers>
-
-                        <ImageButton HeightRequest="70" WidthRequest="60" Padding="3" Aspect="AspectFit"  BorderWidth="1" CornerRadius="15"  
-                         IsVisible="true" BackgroundColor="Transparent" HorizontalOptions="Center" Source="ic_userwhite.png" x:Name="imgbtn_profile" Clicked="imgbtn_profile_Clicked"/>
-                        <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" x:Name="lbl_user_header1"  TextColor="White" FontAttributes="Bold" FontSize="20"/>
-                    </StackLayout>
+                <ImageButton Grid.Column="0" HeightRequest="65" WidthRequest="55" Padding="3" Aspect="AspectFit" BorderWidth="1" CornerRadius="15" 
+                             IsVisible="true" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" Margin="3" 
+                             Source="ic_userwhite.png" x:Name="imgbtn_profile" Clicked="imgbtn_profile_Clicked">
+                    <ImageButton.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="imgbtn_profile_Clicked"/>
+                    </ImageButton.GestureRecognizers>
+                </ImageButton>
+                
+                <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand">
+                    <Label HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" 
+                           x:Name="lbl_user_header1" TextColor="White" FontAttributes="Bold" FontSize="20"/>
 
                     <StackLayout Orientation="Vertical" VerticalOptions="Center" IsVisible="false">
                         <ImageButton VerticalOptions="Center"  Padding="3" HorizontalOptions="End" x:Name="img_raisequery" BorderWidth="1" CornerRadius="15" BackgroundColor="Transparent" Clicked="img_raisequery_Clicked"  Source="ic_query_white.png" HeightRequest="50" Margin="0,0,5,0" />
@@ -46,7 +48,8 @@
                     </StackLayout>
                 </StackLayout>
                 
-                <ImageButton Grid.Column="1" x:Name="img_language" Source="language_ico.png" BackgroundColor="Transparent" Clicked="img_language_Clicked" HeightRequest="40" Padding="3"/>
+                
+                <ImageButton Grid.Column="2" x:Name="img_language" Source="white_language_ico.png" BackgroundColor="Transparent" Clicked="img_language_Clicked" HeightRequest="45" Padding="3" VerticalOptions="Center" HorizontalOptions="Center" Margin="3"/>
             </Grid>
 
 
