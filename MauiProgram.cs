@@ -1,4 +1,12 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
+
+#if ANDROID
+using ResillentConstruction.Platforms.Android;
+#endif
+
+#if IOS
+using ResillentConstruction.Platforms.iOS;
+#endif
 
 namespace ResillentConstruction
 {
@@ -13,6 +21,15 @@ namespace ResillentConstruction
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                })
+                .ConfigureMauiHandlers(handlers =>
+                {
+#if ANDROID
+                    handlers.AddHandler<JustifiedLabel, JustifiedLabelHandler>();
+#endif
+#if IOS
+                    handlers.AddHandler<JustifiedLabel, JustifiedLabelHandler>();
+#endif
                 });
 
 #if DEBUG

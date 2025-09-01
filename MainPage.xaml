@@ -166,7 +166,9 @@
            VerticalOptions="Center"
            TextColor="White"
            FontSize="12"
+           HorizontalTextAlignment="Center"
            FontAttributes="Bold"/>
+
         </Border>
 
     </Grid>

@@ -103,7 +103,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		
+		<Compile Remove="tmpFiles\**" />
+		<EmbeddedResource Remove="tmpFiles\**" />
+		<None Remove="tmpFiles\**" />
 	</ItemGroup>
 
 </Project>
