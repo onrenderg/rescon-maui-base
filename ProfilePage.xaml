@@ -74,7 +74,7 @@
                     <StackLayout Orientation="Horizontal" Margin="6" HorizontalOptions="FillAndExpand" Spacing="10" Padding="4,0">
                         <ActivityIndicator IsVisible="true" IsRunning="true" Margin="5"/>
                         <Label x:Name="lbl_PleaseWait"
-                               Text="Please Wait ..."
+                               Text="Resolving District as per your location ..."
                                TextColor="Black"
                                FontAttributes="Bold"
                                HorizontalOptions="FillAndExpand"

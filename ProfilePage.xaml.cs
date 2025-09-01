@@ -1,4 +1,4 @@
-﻿using ResillentConstruction.Models;
+using ResillentConstruction.Models;
 using ResillentConstruction.webapi;
 using System;
 using System.Collections.Generic;
@@ -87,18 +87,37 @@ namespace ResillentConstruction
 
                 loaddata();
 
-                // Update the GPS label using either Preferences or current DistrictName
-                if (Preferences.Get("lan", "EN-IN").Equals("EN-IN"))
+                // Update the GPS label using saved user preferences data
+                string districtname;
+                if (saveUserPreferenceslist.Any())
                 {
-                    lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + Preferences.Get("DistrictName", DistrictName) + "'";
+                    if (Preferences.Get("lan", "EN-IN").Equals("EN-IN"))
+                    {
+                        districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+                        lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + districtname + "'";
+                    }
+                    else
+                    {
+                        districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+                        lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + districtname + "' " + App.LableText("aspergpshi1");
+                    }
                 }
                 else
                 {
-                    lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + Preferences.Get("DistrictName", DistrictName) + "' " + App.LableText("aspergpshi1");
+                    // Fallback to Preferences if no saved data
+                    if (Preferences.Get("lan", "EN-IN").Equals("EN-IN"))
+                    {
+                        lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + Preferences.Get("DistrictName", DistrictName) + "'";
+                    }
+                    else
+                    {
+                        lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + Preferences.Get("DistrictName", DistrictName) + "' " + App.LableText("aspergpshi1");
+                    }
                 }
 
                 Loading_activity.IsVisible = false;
             });
+            // ... rest of your code remains the same ...
 
 
            
@@ -175,16 +194,33 @@ namespace ResillentConstruction
         { 
             loaddistricts();
 
-            //lbl_gpsdistrict.Text = App.LableText("aspergps") + " '" + Preferences.Get("DistrictName", DistrictName) + "'";
-            if (Preferences.Get("lan", "").Equals("EN-IN"))
+            // Update GPS district label using saved user preferences data
+            saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
+            string districtname;
+            if (saveUserPreferenceslist.Any())
             {
-
-                lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + Preferences.Get("DistrictName", DistrictName) + "'";
+                if (Preferences.Get("lan", "").Equals("EN-IN"))
+                {
+                    districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+                    lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + districtname + "'";
+                }
+                else
+                {
+                    districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+                    lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + districtname + "' " + App.LableText("aspergpshi1");
+                }
             }
             else
             {
-                lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + Preferences.Get("DistrictName", DistrictName) + "' " + App.LableText("aspergpshi1");
-
+                // Fallback to Preferences if no saved data
+                if (Preferences.Get("lan", "").Equals("EN-IN"))
+                {
+                    lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + Preferences.Get("DistrictName", DistrictName) + "'";
+                }
+                else
+                {
+                    lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + Preferences.Get("DistrictName", DistrictName) + "' " + App.LableText("aspergpshi1");
+                }
             }
            
             lbl_mandatory.Text = App.LableText("mandatory");
