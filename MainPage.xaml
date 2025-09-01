@@ -32,14 +32,14 @@
             <StackLayout>
                 <Border Stroke="Silver"
                         StrokeThickness="1"
-                        BackgroundColor="White"
+
                         Padding="10"
                         StrokeShape="RoundRectangle 10">
                     <StackLayout Spacing="15">
                         <Label Text="Himachal Pradesh State Disaster Management Authority (HPSDMA)"
                                HorizontalOptions="Center"
                                HorizontalTextAlignment="Center"
-                               TextColor="Navy"
+                               TextColor="DeepSkyBlue"
                                FontSize="20"
                                FontAttributes="Bold"/>
 
@@ -52,7 +52,7 @@
                         <resillentconstruction:JustifiedLabel
                             Text="Resilient Construction HP is a guiding app for individual house builders willing to construct disaster resistant houses in Himachal Pradesh, a beautiful place in the lap of the Himalayas. This region is frequently visited by earthquakes, landslides, and floods that bring havoc to individual houses not designed to withstand such destructive forces. This app talks about how to select a safe site for construction and what to do and what not to do at different stages of construction to build a safe, durable, cost efficient and comfortable house that can grow to meet your future family needs."
                             FontSize="18"
-                            TextColor="Black"
+
                             LineBreakMode="WordWrap"
                             HorizontalOptions="Fill"/>
                     </StackLayout>
