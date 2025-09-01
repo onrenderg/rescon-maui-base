@@ -7,7 +7,9 @@
 
     <NavigationPage.TitleView  >
         <StackLayout x:Name="Custom_Navigation" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" >
-            <Image Source="ic_himachallogo.png"  HeightRequest="40" WidthRequest="40" VerticalOptions="CenterAndExpand"/>
+             <Image Source="ic_himachallogo.png"  HeightRequest="40" WidthRequest="40"  VerticalOptions="CenterAndExpand"/>
+          
+            
             <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="0">
                 <Label  x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
             </StackLayout>
@@ -15,7 +17,11 @@
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="ic_home.png" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+        <ToolbarItem Clicked="ToolbarItem_Clicked">
+            <ToolbarItem.IconImageSource>
+                <AppThemeBinding Light="ic_home.png" Dark="ic_homewhite.png" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
 
 
