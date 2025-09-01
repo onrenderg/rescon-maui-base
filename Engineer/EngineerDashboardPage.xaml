@@ -24,10 +24,10 @@
 
 
 
-            <Grid BackgroundColor="#058ef2" HeightRequest="80" >
+            <Grid BackgroundColor="#058ef2" HeightRequest="70" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="90*"/>
-                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" x:Name="lbl_header_menu"  BackgroundColor="#058ef2"

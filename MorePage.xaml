@@ -120,7 +120,11 @@
                                 Tapped="languagetapped"
                                 NumberOfTapsRequired="1" />
                                 </StackLayout.GestureRecognizers>
-                                <Image Source="language_ico.png" HeightRequest="20"/>
+                                <Image HeightRequest="20">
+                                    <Image.Source>
+                                        <AppThemeBinding Light="language_ico.png" Dark="white_language_ico.png" />
+                                    </Image.Source>
+                                </Image>
                                 <Label x:Name="lbl_language" Text="Change Language"  HorizontalOptions="FillAndExpand"  FontSize="16" FontAttributes="Bold" />
                             </StackLayout>
 
