@@ -26,7 +26,7 @@
             
             <ScrollView Grid.Row="0" VerticalOptions="FillAndExpand">
                 <StackLayout Margin="0" Spacing="10" VerticalOptions="FillAndExpand">
-                            <Image Source="ic_launcher" HorizontalOptions="Center" WidthRequest="130" HeightRequest="100" />
+                            <Image Source="ic_launcher" HorizontalOptions="Center" WidthRequest="130" HeightRequest="80" />
                             <Label  x:Name="lbl_appname" FontSize="Large"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
                             <Label x:Name="lbl_appversion" FontSize="Small"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
 
@@ -35,7 +35,7 @@
                                 <Label x:Name="lbl_dept" Text="Himachal Pradesh State Disaster Management Authority (HPSDMA), Shimla"  FontSize="17" FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Margin="5,0,0,0"/>
                                 <!--&#10;-->
                             </StackLayout>
-                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5" Spacing="10">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="Deptt_Call"
@@ -46,7 +46,7 @@
                             </StackLayout>
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
 
-                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5" Spacing="10">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="deptt_WebSite"
@@ -57,7 +57,7 @@
                             </StackLayout>
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
 
-                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5" Spacing="10">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="Deptt_email"
@@ -67,9 +67,8 @@
                                 <Label x:Name="lbl_email" Text="Email"  HorizontalOptions="FillAndExpand"  FontSize="16" FontAttributes="Bold"/>
                             </StackLayout>
 
-
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
-                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5" Spacing="10">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="policytapped"
@@ -79,7 +78,6 @@
                                 <Label x:Name="lbl_policy" Text="Privacy Policy"  HorizontalOptions="FillAndExpand"   FontSize="16" FontAttributes="Bold"/>
                             </StackLayout>
 
-
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0" IsVisible="false"/>
                             <StackLayout Orientation="Horizontal" Padding="5" IsVisible="false">
                                 <StackLayout.GestureRecognizers>
@@ -88,7 +86,6 @@
                                 <Image Source="ic_query.png" HeightRequest="20"/>
                                 <Label x:Name="lbl_raisequery" Text="Raise Query"  HorizontalOptions="FillAndExpand"   FontSize="16" FontAttributes="Bold"/>
                             </StackLayout>
-
 
                             <!--<BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
                             <StackLayout Orientation="Horizontal" Padding="5">
@@ -114,7 +111,7 @@
                             </StackLayout>-->
 
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
-                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
+                            <StackLayout Orientation="Horizontal" Padding="5" Margin="0,5,0,5" Spacing="10">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                 Tapped="languagetapped"
@@ -129,7 +126,7 @@
                             </StackLayout>
 
                             <BoxView BackgroundColor="SkyBlue" HeightRequest="1" Margin="10,0,0,0"/>
-                            <StackLayout x:Name="stack_profile" Orientation="Horizontal" Padding="5" Margin="0,5,0,5">
+                            <StackLayout x:Name="stack_profile" Orientation="Horizontal" Padding="5" Margin="0,5,0,5" Spacing="10">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer
                                   Tapped="profiletapped"
@@ -139,9 +136,7 @@
                                 <Label x:Name="lbl_profile" Text="profile"  HorizontalOptions="FillAndExpand"  FontSize="16" FontAttributes="Bold" />
                             </StackLayout>
 
-
-
-                            <Image Source="niclogo.png" HorizontalOptions="Center" WidthRequest="130" HeightRequest="50" Margin="0,20,0,0" />
+                            <Image Source="ic_niclogo.png" HorizontalOptions="Center" WidthRequest="130" HeightRequest="50" Margin="0,20,0,0" />
                 </StackLayout>
             </ScrollView>
 
