@@ -5,13 +5,17 @@
 ios:Page.UseSafeArea="true">
 
     <NavigationPage.TitleView  >
-        <StackLayout x:Name="Custom_Navigation" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" >
-            <Image Source="ic_himachallogo.png"  HeightRequest="50"  VerticalOptions="CenterAndExpand"/>
-            <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="0">
-                <Label  x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
-            </StackLayout>
+        <Grid x:Name="Custom_Navigation">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="ic_himachallogo.png" HeightRequest="50" Grid.Column="0" VerticalOptions="Center"/>
+            <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            </Grid>
             <!-- <Image Source="ic_launcher.png"  HeightRequest="50"  VerticalOptions="CenterAndExpand"/> -->
-        </StackLayout>
+        </Grid>
     </NavigationPage.TitleView>
 
 
@@ -23,23 +27,27 @@ ios:Page.UseSafeArea="true">
         <ToolbarItem Text="⚙" x:Name="settings" Clicked="SettingBtn"/>
     </ContentPage.ToolbarItems>-->
     <ContentPage.Content>
-        <StackLayout>
-        <StackLayout Orientation="Vertical">
-                <!--<BoxView BackgroundColor="White" HeightRequest="2" HorizontalOptions="FillAndExpand" Margin="0,3,0,0"/>-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!--<BoxView BackgroundColor="White" HeightRequest="2" HorizontalOptions="FillAndExpand" Margin="0,3,0,0"/>-->
             <!--<Label x:Name="lbl_Topheading" FontAttributes="Bold" FontSize="Large" VerticalOptions="Start" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextColor="Black"/>-->
-                <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" x:Name="lbl_Topheading"  TextColor="White" BackgroundColor="#c4913f"
-             FontAttributes="Bold" FontSize="20" Margin="0" Padding="0"/>
+            <Label Grid.Row="0" HorizontalTextAlignment="Center" x:Name="lbl_Topheading" TextColor="White" BackgroundColor="#c4913f"
+                   FontAttributes="Bold" FontSize="20" Margin="0" Padding="0"/>
 
-                <!--<Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" x:Name="lbl_pgname"  TextColor="White" BackgroundColor="#c4913f"
+            <!--<Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" x:Name="lbl_pgname"  TextColor="White" BackgroundColor="#c4913f"
 FontAttributes="Bold" FontSize="20" Margin="0" Padding="0"/>-->
             
-                <BoxView BackgroundColor="Navy" HeightRequest="2" HorizontalOptions="FillAndExpand"/>
-        </StackLayout>
-        <WebView x:Name="browser" 
-                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                 MinimumWidthRequest="0" MinimumHeightRequest="0"
-                 Scale="1" ScaleX="1" ScaleY="1"/>
-        <!--<Label x:Name="Footer" VerticalOptions="End" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="#0D4C88"/>-->
-        </StackLayout>
+            <BoxView Grid.Row="1" BackgroundColor="Navy" HeightRequest="2"/>
+            
+            <WebView Grid.Row="2" x:Name="browser" 
+                     MinimumWidthRequest="0" MinimumHeightRequest="0"
+                     Scale="1" ScaleX="1" ScaleY="1"/>
+            <!--<Label x:Name="Footer" VerticalOptions="End" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="#0D4C88"/>-->
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
