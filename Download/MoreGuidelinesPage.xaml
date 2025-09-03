@@ -11,7 +11,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Source="ic_himachallogo.png" HeightRequest="50" Grid.Column="0" VerticalOptions="Center"/>
+            <Image Source="ic_himachallogo.png" HeightRequest="40" WidthRequest="40" Grid.Column="0" VerticalOptions="Center"/>
             <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
                 <Label x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
             </Grid>
@@ -44,7 +44,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Border Grid.Row="0" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2,5,2,0" Padding="1">
+                    <Border Grid.Row="0" Stroke="#058ef2" StrokeThickness="1" Margin="2,5,2,0" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -57,11 +57,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Mason's guide for construction of Non-Engineered buildings(Bilingual)" x:Name="Btn_masonguide" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
+                            <Label Text="Mason's guide for construction of Non-Engineered buildings(Bilingual)" x:Name="Btn_masonguide" TextColor="#058ef2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
                         </Grid>
                     </Border>
 
-                    <Border Grid.Row="1" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="1" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -74,7 +74,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Owner's guide for construction of Non-Engineered buildings" x:Name="Btn_Ownersguide" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
+                            <Label Text="Owner's guide for construction of Non-Engineered buildings" x:Name="Btn_Ownersguide" TextColor="#058ef2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
                         </Grid>
                     </Border>   
                         
@@ -82,7 +82,7 @@
                 
 
 
-                    <Border Grid.Row="2" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="2" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -95,11 +95,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="A typical design of small dwelling unit for Seismic zone" x:Name="Btn_dwellingunitforSeismiczone" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
+                            <Label Text="A typical design of small dwelling unit for Seismic zone" x:Name="Btn_dwellingunitforSeismiczone" TextColor="#058ef2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
                         </Grid>
                     </Border>
 
-                    <Border Grid.Row="3" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="3" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -112,11 +112,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="EarthQuake Resistant Construction IV" x:Name="Btn_EarthQuakeResistantConstructionIV" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
+                            <Label Text="EarthQuake Resistant Construction IV" x:Name="Btn_EarthQuakeResistantConstructionIV" TextColor="#058ef2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
                         </Grid>
                     </Border>
 
-                    <Border Grid.Row="4" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="4" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -129,11 +129,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Guide For Earthquake Retrofitting" x:Name="Btn_GuideForEarthquakeRetrofitting" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
+                            <Label Text="Guide For Earthquake Retrofitting" x:Name="Btn_GuideForEarthquakeRetrofitting" TextColor="#058ef2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
                         </Grid>
                     </Border>
 
-                    <Border Grid.Row="5" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="5" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -146,11 +146,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Retrofitting Guidelines" x:Name="Btn_RetrofittingGuidelines" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
+                            <Label Text="Retrofitting Guidelines" x:Name="Btn_RetrofittingGuidelines" TextColor="#058ef2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
                         </Grid>
                     </Border>
 
-                    <Border Grid.Row="6" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="6" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -163,12 +163,12 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Simplified Guideline Zone V" x:Name="Btn_SimplifiedGuidelineZoneV" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
+                            <Label Text="Simplified Guideline Zone V" x:Name="Btn_SimplifiedGuidelineZoneV" TextColor="#058ef2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
                         </Grid>
                     </Border>
 
 
-                    <Border Grid.Row="7" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="7" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -181,7 +181,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Evolving Strategy for Capacity Building of Masons, Carpenters and Wire Binders at Panchayat level for safe construction" x:Name="Btn_EvolvingStrategyPanchayatlevel" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
+                            <Label Text="Evolving Strategy for Capacity Building of Masons, Carpenters and Wire Binders at Panchayat level for safe construction" x:Name="Btn_EvolvingStrategyPanchayatlevel" TextColor="#058ef2" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" Grid.Column="1"/>
                         </Grid>
                     </Border>
                 </Grid>
@@ -239,7 +239,7 @@
 
         <ContentView x:Name="Loading_activity" BackgroundColor="#C0808080" Padding="20, 20" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             <Grid VerticalOptions="Center" HorizontalOptions="Center">
-                <Border BackgroundColor="White">
+                <Border StrokeThickness="0">
                     <Grid Margin="6" ColumnSpacing="5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>

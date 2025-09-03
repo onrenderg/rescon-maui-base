@@ -11,7 +11,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Source="ic_himachallogo.png" HeightRequest="50" Grid.Column="0" VerticalOptions="Center"/>
+            <Image Source="ic_himachallogo.png" HeightRequest="40" WidthRequest="40" Grid.Column="0" VerticalOptions="Center"/>
             <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
                 <Label x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
             </Grid>
@@ -44,7 +44,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Border Grid.Row="0" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="0" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -57,11 +57,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Earthquake Awareness for workplace" x:Name="Btn_EarthquakeAwarenessforworkplace" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Earthquake Awareness for workplace" x:Name="Btn_EarthquakeAwarenessforworkplace" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
 
-                    <Border Grid.Row="1" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="1" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -74,11 +74,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Earthquake Poster " x:Name="Btn_EarthquakePoster" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Earthquake Poster " x:Name="Btn_EarthquakePoster" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
                     
-                    <Border Grid.Row="2" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="2" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -91,11 +91,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Earth Quake Safety" x:Name="Btn_EarthQuakeSafety" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Earth Quake Safety" x:Name="Btn_EarthQuakeSafety" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
 
-                    <Border Grid.Row="3" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="3" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -108,11 +108,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Earthquake Safety Trifold" x:Name="Btn_EarthquakeSafetyTrifold" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Earthquake Safety Trifold" x:Name="Btn_EarthquakeSafetyTrifold" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
                     
-                    <Border Grid.Row="4" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="4" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -125,11 +125,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Earth Quake Survival Guide" x:Name="Btn_EarthQuakeSurvivalGuide" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Earth Quake Survival Guide" x:Name="Btn_EarthQuakeSurvivalGuide" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
                     
-                    <Border Grid.Row="5" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="5" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -142,11 +142,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="An Earthquake Preparedness Guide" x:Name="Btn_EarthquakePreparednessGuide" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="An Earthquake Preparedness Guide" x:Name="Btn_EarthquakePreparednessGuide" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
                     
-                    <Border Grid.Row="6" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="6" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -159,7 +159,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Earthquake Safety Hang Up" x:Name="Btn_EarthquakeSafetyHangUp" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Earthquake Safety Hang Up" x:Name="Btn_EarthquakeSafetyHangUp" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
                     
@@ -214,7 +214,7 @@
 
         <ContentView x:Name="Loading_activity" BackgroundColor="#C0808080" Padding="20, 20" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             <Grid VerticalOptions="Center" HorizontalOptions="Center">
-                <Border BackgroundColor="White">
+                <Border StrokeThickness="0">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="5"/>
                     </Border.StrokeShape>

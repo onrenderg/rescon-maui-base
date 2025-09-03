@@ -11,7 +11,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Source="ic_himachallogo.png" HeightRequest="50" Grid.Column="0" VerticalOptions="Center"/>
+            <Image Source="ic_himachallogo.png" HeightRequest="40" WidthRequest="40" Grid.Column="0" VerticalOptions="Center"/>
             <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
                 <Label x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
             </Grid>
@@ -40,7 +40,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Border Grid.Row="0" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="0" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -53,11 +53,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Incident Response System" x:Name="Btn_IncidentResponseSystem" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Incident Response System" x:Name="Btn_IncidentResponseSystem" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
 
-                    <Border Grid.Row="1" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="1" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -70,11 +70,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Landslide Booklet" x:Name="Btn_LandslideBooklet" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Landslide Booklet" x:Name="Btn_LandslideBooklet" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
                     
-                    <Border Grid.Row="2" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="2" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -87,11 +87,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Road Accident Manual" x:Name="Btn_RoadAccidentManual" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Road Accident Manual" x:Name="Btn_RoadAccidentManual" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
                     
-                    <Border Grid.Row="3" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="3" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -104,10 +104,10 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text="Snow Region and Water Booklet" x:Name="Btn_SnowRegionandWaterBooklet" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text="Snow Region and Water Booklet" x:Name="Btn_SnowRegionandWaterBooklet" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
-                    <Border Grid.Row="4" Stroke="#058ef2" StrokeThickness="1" BackgroundColor="White" Margin="2" Padding="1">
+                    <Border Grid.Row="4" Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
@@ -120,7 +120,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ic_details.png" HeightRequest="50" Grid.Column="0"/>
-                            <Label Text=" Water Rescue Booklet" x:Name="Btn_WaterRescueBooklet" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="Navy" Grid.Column="1"/>
+                            <Label Text=" Water Rescue Booklet" x:Name="Btn_WaterRescueBooklet" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="18" FontAttributes="Bold" TextColor="#058ef2" Grid.Column="1"/>
                         </Grid>
                     </Border>
                 </Grid>
@@ -177,7 +177,7 @@
 
         <ContentView x:Name="Loading_activity" BackgroundColor="#C0808080" Padding="20, 20" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             <Grid VerticalOptions="Center" HorizontalOptions="Center">
-                <Border BackgroundColor="White">
+                <Border StrokeThickness="0">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="5"/>
                     </Border.StrokeShape>
