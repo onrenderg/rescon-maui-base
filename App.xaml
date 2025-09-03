@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ResillentConstruction.App">
@@ -78,7 +78,6 @@
             <Setter Property="BackgroundColor"
                       Value="{AppThemeBinding Light={StaticResource Light_Calender_Grid_Background_Color}, Dark={StaticResource Dark_Calender_Grid_Background_Color}}" />
             <Setter Property="HeightRequest" Value="2"/>
-            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
         </Style>
 
 
@@ -114,7 +113,6 @@
             </Setter>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
         </Style>
 
         <Style x:Key="LabelStyle_TabMenu" TargetType="Label">
@@ -139,7 +137,6 @@
             </Setter>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             <Setter Property="FontAttributes" Value="Bold"/>
         </Style>
         <Style x:Key="NIC_LabelStyle_PageTitle" TargetType="Label">
@@ -153,7 +150,6 @@
             <Setter Property="BackgroundColor" Value="#0f0f0f"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="Padding" Value="4"/>
         </Style>
@@ -184,18 +180,30 @@
             <Setter Property="Text" Value="Visitor Management"/>
         </Style>
 
-        <Style x:Key="FrameStyle" TargetType="Frame">
+        <Style x:Key="BorderStyle" TargetType="Border">
             <Setter Property="BackgroundColor"
                   Value="{AppThemeBinding Light={StaticResource Light_Frame_Background_Color}, Dark={StaticResource Dark_Frame_Background_Color}}" />
-            <Setter Property="BorderColor"
+            <Setter Property="Stroke"
                   Value="{AppThemeBinding Light={StaticResource Light_Frame_Border_Color}, Dark={StaticResource Dark_Frame_Border_Color}}" />
+            <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="StrokeShape">
+                <Setter.Value>
+                    <RoundRectangle CornerRadius="5"/>
+                </Setter.Value>
+            </Setter>
         </Style>
 
-        <Style x:Key="FrameLoadingStyle" TargetType="Frame">
+        <Style x:Key="BorderLoadingStyle" TargetType="Border">
             <Setter Property="BackgroundColor"
                   Value="{AppThemeBinding Light={StaticResource Light_Frame_Background_Color}, Dark={StaticResource Dark_Frame_Background_Color}}" />
-            <Setter Property="BorderColor"
+            <Setter Property="Stroke"
                   Value="{AppThemeBinding Light={StaticResource Light_Frame_Border_Color}, Dark={StaticResource Dark_Frame_Loading_Border_Color}}" />
+            <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="StrokeShape">
+                <Setter.Value>
+                    <RoundRectangle CornerRadius="5"/>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style x:Key="FooterGridStyle" TargetType="Grid">
@@ -211,10 +219,11 @@
                   Value="{AppThemeBinding Light={StaticResource Light_Calender_Grid_Background_Color}, Dark={StaticResource Dark_Calender_Grid_Background_Color}}" />
         </Style>
 
-        <Style x:Key="CalenderStack" TargetType="StackLayout">
+        <Style x:Key="CalenderGrid" TargetType="Grid">
             <Setter Property="BackgroundColor"
                   Value="{AppThemeBinding Light={StaticResource Light_Calender_Stack_Background_Color}, Dark={StaticResource Dark_Calender_Stack_Background_Color}}" />
-            <Setter Property="Spacing" Value="0"/>
+            <Setter Property="RowSpacing" Value="0"/>
+            <Setter Property="ColumnSpacing" Value="0"/>
         </Style>
     </Application.Resources>
 </Application>
