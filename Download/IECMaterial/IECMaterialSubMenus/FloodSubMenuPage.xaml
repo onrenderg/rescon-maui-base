@@ -33,11 +33,11 @@
 
             <ScrollView Grid.Row="1">
                 <Grid>
-                    <Border Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1">
+                    <Border Stroke="#058ef2" StrokeThickness="1" Margin="2" Padding="1" VerticalOptions="Start">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"/>
                         </Border.StrokeShape>
-                        <Grid Padding="7" ColumnSpacing="5">
+                        <Grid Padding="7" ColumnSpacing="5" HeightRequest="60">
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="Btn_FloodSafety_Clicked" NumberOfTapsRequired="1"/>
                             </Grid.GestureRecognizers>
