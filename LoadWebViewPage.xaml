@@ -1,41 +1,53 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ResillentConstruction.LoadWebViewPage" 
                xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls" 
              ios:Page.UseSafeArea="true" BackgroundColor="White">
     
-    <NavigationPage.TitleView  >
-        <StackLayout x:Name="Custom_Navigation" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" >
-            <Image Source="ic_himachallogo.png"  HeightRequest="40" WidthRequest="40"  VerticalOptions="CenterAndExpand"/>
-            <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="0">
-                <Label  x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
-            </StackLayout>
-        </StackLayout>
+    <NavigationPage.TitleView>
+        <Grid x:Name="Custom_Navigation">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="ic_himachallogo.png" HeightRequest="40" WidthRequest="40" Grid.Column="0"/>
+            <Grid Grid.Column="1">
+                <Label x:Name="lbl_navigation_header" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </Grid>
+        </Grid>
     </NavigationPage.TitleView>
     
     <!--<ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="ic_homewhite.png" Clicked="ToolbarItem_Clicked" ></ToolbarItem>
     </ContentPage.ToolbarItems>-->
 
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-
-            <Label x:Name="lbl_heading" FontSize="16" BackgroundColor="Navy" TextColor="White" Margin="5"  HorizontalTextAlignment="Center" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
-            <WebView x:Name="webview_loaddata"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-        </StackLayout>
+        <Label x:Name="lbl_heading" FontSize="16" BackgroundColor="Navy" TextColor="White" Margin="5" HorizontalTextAlignment="Center" FontAttributes="Bold" Grid.Row="0"/>
+        <WebView x:Name="webview_loaddata" Grid.Row="1"/>
 
 
         <ContentView x:Name="Loading_activity" BackgroundColor="#C0808080" Padding="20, 20" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                <Frame BackgroundColor="White" HorizontalOptions="FillAndExpand">
-                    <StackLayout Orientation="Horizontal" Margin="6" HorizontalOptions="FillAndExpand">
-                        <ActivityIndicator IsVisible="true" IsRunning="true" Margin="5"/>
-                        <Label x:Name="lbl_PleaseWait" Text="Please Wait ..." TextColor="Black" FontAttributes="Bold" HorizontalOptions="FillAndExpand" WidthRequest="600" VerticalTextAlignment="Center"/>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
+            <Grid VerticalOptions="Center" HorizontalOptions="Center">
+                <Border BackgroundColor="White">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5"/>
+                    </Border.StrokeShape>
+                    <Grid Margin="6" ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <ActivityIndicator IsVisible="true" IsRunning="true" Margin="5" Grid.Column="0"/>
+                        <Label x:Name="lbl_PleaseWait" Text="Please Wait ..." TextColor="Black" FontAttributes="Bold" WidthRequest="600" VerticalTextAlignment="Center" Grid.Column="1"/>
+                    </Grid>
+                </Border>
+            </Grid>
         </ContentView>
 
     </Grid>
