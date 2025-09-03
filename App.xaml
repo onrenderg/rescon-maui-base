@@ -219,7 +219,7 @@
                   Value="{AppThemeBinding Light={StaticResource Light_Calender_Grid_Background_Color}, Dark={StaticResource Dark_Calender_Grid_Background_Color}}" />
         </Style>
 
-        <Style x:Key="CalenderGrid" TargetType="Grid">
+        <Style x:Key="CalenderStackGrid" TargetType="Grid">
             <Setter Property="BackgroundColor"
                   Value="{AppThemeBinding Light={StaticResource Light_Calender_Stack_Background_Color}, Dark={StaticResource Dark_Calender_Stack_Background_Color}}" />
             <Setter Property="RowSpacing" Value="0"/>
