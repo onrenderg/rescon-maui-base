@@ -1,4 +1,4 @@
-﻿using ResillentConstruction.Models;
+using ResillentConstruction.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +32,12 @@ namespace ResillentConstruction.submenus
             if (language.Equals("EN-IN"))
             {
                 htmlstartpath = $"<html>\n<head>\n<meta http-equiv=\"Refresh\" content=\"0;url=2024/English/HTMLs/Zone/";
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName?.ToString() ?? string.Empty;
             }
             else
             {
                 htmlstartpath = $"<html>\n<head>\n<meta http-equiv=\"Refresh\" content=\"0;url=2024/Hindi/HTMLs/Zone/";
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal?.ToString() ?? string.Empty;
             }
 
             Footer_Labels = new Label[3] { Tab_Home_Label, Tab_Download_Label, Tab_Settings_Label };
@@ -45,7 +45,7 @@ namespace ResillentConstruction.submenus
             //Footer_Image_Source = new string[3] { "ic_stock.png", "ic_add.png", "ic_more.png" };
             Footer_Image_Source = new string[3] { "ic_home.png", "ic_download.png", "ic_more.png" };          
 
-            userzone = saveUserPreferenceslist.ElementAt(0).zonename.ToString();
+            userzone = saveUserPreferenceslist.ElementAt(0).zonename?.ToString() ?? string.Empty;
             lbl_header_submenu.Text = App.LableText("selectsubcatgeory") + "\n" + _pagenm;
         }
 

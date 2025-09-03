@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using ResillentConstruction.Models;
 using ResillentConstruction.webapi;
 using System;
@@ -21,7 +21,7 @@ namespace ResillentConstruction
         public static string DB_Name = "ResilientConstruction.db";
         LanguageMasterDatabase languageMasterDatabase = new LanguageMasterDatabase();
         public static int Language = 0;
-        public static List<LanguageMaster> MyLanguage;
+        public static List<LanguageMaster> MyLanguage = new List<LanguageMaster>();
         //public static List<DistrictMaster> districtMasterslist;
         SaveUserPreferencesDatabase saveUserPreferencesDatabase = new SaveUserPreferencesDatabase();
 
@@ -378,11 +378,11 @@ namespace ResillentConstruction
             {
                 if (Preferences.Get("lan", "EN-IN") == "EN-IN")
                 {
-                    return App.MyLanguage.FindAll(x => x.ResourceKey.Trim().ToLower() == key.Trim().ToLower()).FirstOrDefault().ResourceValue;
+                    return App.MyLanguage.FindAll(x => (x.ResourceKey?.Trim().ToLower() ?? string.Empty) == (key?.Trim().ToLower() ?? string.Empty)).FirstOrDefault()?.ResourceValue ?? key;
                 }
                 else
                 {
-                    return App.MyLanguage.FindAll(x => x.ResourceKey.Trim().ToLower() == key.Trim().ToLower()).FirstOrDefault().LocalResourceValue;
+                    return App.MyLanguage.FindAll(x => (x.ResourceKey?.Trim().ToLower() ?? string.Empty) == (key?.Trim().ToLower() ?? string.Empty)).FirstOrDefault()?.LocalResourceValue ?? key;
                 }
             }
             catch (Exception)
@@ -411,7 +411,7 @@ namespace ResillentConstruction
             string Lable_Name = "No Value";
             try
             {
-                Lable_Name = MyLanguage.FindAll(s => s.MultipleResourceKey == Key).ElementAt(0).ResourceValue;
+                Lable_Name = MyLanguage.FindAll(s => s.MultipleResourceKey == Key).FirstOrDefault()?.ResourceValue ?? Key;
             }
             catch
             {
@@ -473,7 +473,7 @@ namespace ResillentConstruction
                 {
                     Latitude = location_Exact.Latitude;
                     Longitude = location_Exact.Longitude;
-                    Accuracy = (double)location_Exact.Accuracy;
+                    Accuracy = location_Exact.Accuracy ?? 0.0;
                     DateTime locationtime = location_Exact.Timestamp.UtcDateTime.AddHours(5.5);
                     var placemarks = await Geocoding.GetPlacemarksAsync(location_Exact.Latitude, location_Exact.Longitude);
                     var placemark = placemarks?.FirstOrDefault();
@@ -486,7 +486,8 @@ namespace ResillentConstruction
             catch (FeatureNotSupportedException fnsEx)
             {
                 var window = Application.Current?.Windows?.FirstOrDefault();
-                await window?.Page?.DisplayAlert(AppName, fnsEx.Message + "\n" + "App Cannot be used without Location", "Close");
+                if (window?.Page != null)
+                    await window.Page.DisplayAlert(AppName, fnsEx.Message + "\n" + "App Cannot be used without Location", "Close");
                 System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
 
                 Latitude = 0.00;
@@ -497,8 +498,10 @@ namespace ResillentConstruction
             catch (FeatureNotEnabledException fneEx)
             {
                 var window2 = Application.Current?.Windows?.FirstOrDefault();
-                bool m = await window2?.Page?.DisplayAlert(AppName, fneEx.Message + "\n" + "App Cannot be used without Location.",
-                    "Close", "Settings");
+                bool m = false;
+                if (window2?.Page != null)
+                    m = await window2.Page.DisplayAlert(AppName, fneEx.Message + "\n" + "App Cannot be used without Location.",
+                        "Close", "Settings");
                 if (m)
                 {
                     System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
@@ -516,9 +519,11 @@ namespace ResillentConstruction
             catch (PermissionException pEx)
             {
                 var window3 = Application.Current?.Windows?.FirstOrDefault();
-                bool m = await window3?.Page?.DisplayAlert(AppName, pEx.Message + "\n" + "App Cannot be used without Location Permission.",
-                    "No Thanks",
-                    "Settings");
+                bool m = false;
+                if (window3?.Page != null)
+                    m = await window3.Page.DisplayAlert(AppName, pEx.Message + "\n" + "App Cannot be used without Location Permission.",
+                        "No Thanks",
+                        "Settings");
                 if (m)
                 {
                     System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
@@ -549,11 +554,11 @@ namespace ResillentConstruction
             try
             {
                 var placeholder = await Geocoding.GetPlacemarksAsync(App.Latitude, App.Longitude);
-                return placeholder?.FirstOrDefault();
+                return placeholder?.FirstOrDefault() ?? new Placemark();
             }
             catch
             {
-                return null;
+                return new Placemark();
             }
         }
         public static bool isAlphabetonly(string strtocheck)

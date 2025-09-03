@@ -1,4 +1,4 @@
-﻿using ResillentConstruction.Models;
+using ResillentConstruction.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,13 +35,13 @@ namespace ResillentConstruction.submenus
             {
 
                 htmlstartpath = $"<html>\n<head>\n<meta http-equiv=\"Refresh\" content=\"0;url=2024/English/HTMLs/Zone/";
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName?.ToString() ?? string.Empty;
 
             }
             else
             {
                 htmlstartpath = $"<html>\n<head>\n<meta http-equiv=\"Refresh\" content=\"0;url=2024/Hindi/HTMLs/Zone/";
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal?.ToString() ?? string.Empty;
             }
             Footer_Labels = new Label[3] { Tab_Home_Label, Tab_Download_Label, Tab_Settings_Label };
             Footer_Images = new Image[3] { Tab_Home_Image, Tab_Download_Image, Tab_Settings_Image };
@@ -52,7 +52,7 @@ namespace ResillentConstruction.submenus
            
 
 
-            userzone = saveUserPreferenceslist.ElementAt(0).zonename.ToString();
+            userzone = saveUserPreferenceslist.ElementAt(0).zonename?.ToString() ?? string.Empty;
         }
 
 

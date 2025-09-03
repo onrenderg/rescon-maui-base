@@ -1,4 +1,4 @@
-﻿using ResillentConstruction.Models;
+using ResillentConstruction.Models;
 using ResillentConstruction.webapi;
 using System;
 using System.Collections.Generic;
@@ -26,11 +26,11 @@ namespace ResillentConstruction
             string language = Preferences.Get("lan", "EN-IN");
             if (language.Equals("EN-IN"))
             {
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName?.ToString() ?? string.Empty;
             }
             else
             {
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal?.ToString() ?? string.Empty;
             }
 
             lbl_Topheading.Text = saveUserPreferenceslist.ElementAt(0).Name + " (" + districtname + ", " + App.LableText("yourzone") + " - " + saveUserPreferenceslist.ElementAt(0).zonename + ")";
@@ -40,7 +40,7 @@ namespace ResillentConstruction
             Footer_Image_Source = new string[3] { "ic_home.png", "ic_download.png", "ic_more.png" };          
 
             lbl_navigation_header.Text = App.LableText("lbl_navigation_header");
-            userzone = saveUserPreferenceslist.ElementAt(0).zonename.ToString();
+            userzone = saveUserPreferenceslist.ElementAt(0).zonename?.ToString() ?? string.Empty;
             lbl_mapzone.Text = App.LableText("mapforzone") + userzone;
             Btn_video.Text = App.LableText("videoResilientConstructionGuidelines");
             Btn_userzone.Text = App.LableText("yourzoneguidelines") + " '" + userzone + "'";

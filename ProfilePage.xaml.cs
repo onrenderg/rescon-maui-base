@@ -9,18 +9,19 @@ using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Xaml;
 using Microsoft.Maui.ApplicationModel;
+
 namespace ResillentConstruction
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
         int districtcode;
-        string DistrictName, DistrictNameLocal;
+        string DistrictName = string.Empty, DistrictNameLocal = string.Empty;
 
         SaveUserPreferencesDatabase saveUserPreferencesDatabase = new SaveUserPreferencesDatabase();
-        List<SaveUserPreferences> saveUserPreferenceslist;
+        List<SaveUserPreferences> saveUserPreferenceslist = new List<SaveUserPreferences>();
         int zonecode;
-        string zonename;
+        string zonename = string.Empty;
 
         DistrictMasterDatabase districtMasterDatabase = new DistrictMasterDatabase();
         List<DistrictMaster> districtMasterslist = new List<DistrictMaster>();
@@ -93,12 +94,12 @@ namespace ResillentConstruction
                 {
                     if (Preferences.Get("lan", "EN-IN").Equals("EN-IN"))
                     {
-                        districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+                        districtname = saveUserPreferenceslist.ElementAt(0).DistrictName?.ToString() ?? string.Empty;
                         lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + districtname + "'";
                     }
                     else
                     {
-                        districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+                        districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal?.ToString() ?? string.Empty;
                         lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + districtname + "' " + App.LableText("aspergpshi1");
                     }
                 }
@@ -164,7 +165,7 @@ namespace ResillentConstruction
                 entry_name.Text = saveUserPreferenceslist.ElementAt(0).Name;
                 entry_place.Text = saveUserPreferenceslist.ElementAt(0).placeofconstruction;
 
-                string zone = saveUserPreferenceslist.ElementAt(0).zonename;
+                string zone = saveUserPreferenceslist.ElementAt(0).zonename ?? string.Empty;
                 lbl_fallinzone.Text = App.LableText("underzone") + zone;               
             }
             
@@ -183,10 +184,10 @@ namespace ResillentConstruction
                 return;
             }
             districtcode = districtMasterslist.ElementAt(Picker_District.SelectedIndex).DistrictCode;
-            DistrictName = districtMasterslist.ElementAt(Picker_District.SelectedIndex).DistrictName;
-            DistrictNameLocal = districtMasterslist.ElementAt(Picker_District.SelectedIndex).DistrictNameLocal;
+            DistrictName = districtMasterslist.ElementAt(Picker_District.SelectedIndex).DistrictName ?? string.Empty;
+            DistrictNameLocal = districtMasterslist.ElementAt(Picker_District.SelectedIndex).DistrictNameLocal ?? string.Empty;
             zonecode = districtMasterslist.ElementAt(Picker_District.SelectedIndex).ZoneCode;
-            zonename = districtMasterslist.ElementAt(Picker_District.SelectedIndex).ZoneName;
+            zonename = districtMasterslist.ElementAt(Picker_District.SelectedIndex).ZoneName ?? string.Empty;
 
             lbl_fallinzone.Text = App.LableText("underzone") + zonename;
         }
@@ -201,12 +202,12 @@ namespace ResillentConstruction
             {
                 if (Preferences.Get("lan", "").Equals("EN-IN"))
                 {
-                    districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+                    districtname = saveUserPreferenceslist.ElementAt(0).DistrictName?.ToString() ?? string.Empty;
                     lbl_gpsdistrict.Text = App.LableText("aspergpsen") + " '" + districtname + "'";
                 }
                 else
                 {
-                    districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+                    districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal?.ToString() ?? string.Empty;
                     lbl_gpsdistrict.Text = App.LableText("aspergpshi") + " '" + districtname + "' " + App.LableText("aspergpshi1");
                 }
             }
@@ -286,7 +287,7 @@ namespace ResillentConstruction
                 saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select UserID from SaveUserPreferences").ToList();
                 if (saveUserPreferenceslist.Any())
                 {
-                    UserId = saveUserPreferenceslist.ElementAt(0).UserID;
+                    UserId = saveUserPreferenceslist.ElementAt(0).UserID ?? string.Empty;
                 }
                 else
                 {

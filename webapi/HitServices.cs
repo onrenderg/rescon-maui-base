@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http.Headers;
@@ -88,7 +88,8 @@ namespace ResillentConstruction.webapi
                                 if (isMandatory == "Y")
                                 {
                                     var window = Application.Current?.Windows?.FirstOrDefault();
-                                    await window?.Page?.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}", "Update","Close");
+                                    if (window?.Page != null)
+                        await window.Page.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}", "Update","Close");
                                     await Launcher.OpenAsync(url);
                                     return;
                                 }
@@ -96,7 +97,9 @@ namespace ResillentConstruction.webapi
                                 {
 
                                     var window2 = Application.Current?.Windows?.FirstOrDefault();
-                                    var updat = await window2?.Page?.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}\nWould you like to update now?", "Yes", "No");
+                                    bool updat = false;
+                    if (window2?.Page != null)
+                        updat = await window2.Page.DisplayAlert("New Version", $"There is a new version (v{latestVersionNumber}) of this app available.\nWhatsNew: {whatsNew}\nWould you like to update now?", "Yes", "No");
                                             if (updat)
                                             {
                                                 await Launcher.OpenAsync(url);
@@ -264,8 +267,8 @@ namespace ResillentConstruction.webapi
                     var parsed = JObject.Parse(result);
                     if ((int)response.StatusCode == 200)
                     {
-                        string DistrictName = parsed["location"]["DistrictName"].ToString();
-                        int districtcode = int.Parse(parsed["location"]["DistrictCode"].ToString());
+                        string DistrictName = parsed["location"]?["DistrictName"]?.ToString() ?? string.Empty;
+                        int districtcode = int.Parse(parsed["location"]?["DistrictCode"]?.ToString() ?? "0");
                         Preferences.Set("Discode", districtcode);
                         Preferences.Set("DistrictName", DistrictName);
                         return 200;
@@ -273,7 +276,8 @@ namespace ResillentConstruction.webapi
                     else
                     {
                         var window = Application.Current?.Windows?.FirstOrDefault();
-                        await window?.Page?.DisplayAlert(AppName, "Unable to fetch Department.", ("close"));
+                        if (window?.Page != null)
+                            await window.Page.DisplayAlert(AppName, "Unable to fetch Department.", "close");
 
                     }
                     return (int)response.StatusCode;
@@ -287,7 +291,8 @@ namespace ResillentConstruction.webapi
             else
             {
                 var window3 = Application.Current?.Windows?.FirstOrDefault();
-                await window3?.Page?.DisplayAlert(AppName, NoInternet_, ("close"));
+                if (window3?.Page != null)
+                    await window3.Page.DisplayAlert(AppName, NoInternet_, "close");
                 return 101;
             }
         }

@@ -1,4 +1,4 @@
-﻿using ResillentConstruction.Models;
+using ResillentConstruction.Models;
 using ResillentConstruction.submenus;
 using ResillentConstruction.webapi;
 using System;
@@ -28,22 +28,22 @@ namespace ResillentConstruction
         {
             InitializeComponent();
             saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
-            userzone = saveUserPreferenceslist.ElementAt(0).zonename.ToString();
+            userzone = saveUserPreferenceslist.ElementAt(0).zonename?.ToString() ?? string.Empty;
             string language = Preferences.Get("lan",  "EN-IN");
 
             if (language.Equals("EN-IN"))
             {
                 htmlstartpath = $"<html>\n<head>\n<meta http-equiv=\"Refresh\" content=\"0;url=2024/English/HTMLs/Zone/";
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName?.ToString() ?? string.Empty;
             }
             else
             {
                 htmlstartpath = $"<html>\n<head>\n<meta http-equiv=\"Refresh\" content=\"0;url=2024/Hindi/HTMLs/Zone/";
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal?.ToString() ?? string.Empty;
 
             }
 
-            lbl_user_header1.Text = App.LableText("welcome") + " " + saveUserPreferenceslist.ElementAt(0).Name.ToString() + "\n" +
+            lbl_user_header1.Text = App.LableText("welcome") + " " + (saveUserPreferenceslist.ElementAt(0).Name?.ToString() ?? string.Empty) + "\n" +
              App.LableText("yourdistrict") + " : " + districtname + "\n" + App.LableText("yourzone") + " : " + userzone;
 
 

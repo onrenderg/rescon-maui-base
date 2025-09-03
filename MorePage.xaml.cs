@@ -1,4 +1,4 @@
-﻿
+
 
 using ResillentConstruction.Engineer;
 using ResillentConstruction.Models;
@@ -162,7 +162,7 @@ namespace ResillentConstruction
             List<SaveUserPreferences> saveUserPreferenceslist;
 
             saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
-            string loggedinuser =saveUserPreferenceslist.ElementAt(0).Name;
+            string loggedinuser = saveUserPreferenceslist.ElementAt(0).Name ?? string.Empty;
             bool m = await DisplayAlert(App.AppName, App.LableText("areyousure") + " '" + loggedinuser
                + "' " + App.LableText("youlogout"), App.LableText("Logout"), App.LableText("Cancel"));
            

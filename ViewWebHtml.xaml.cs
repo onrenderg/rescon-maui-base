@@ -1,4 +1,4 @@
-﻿
+
 //
 
 using ResillentConstruction.Models;
@@ -40,12 +40,12 @@ namespace ResillentConstruction
             if (language.Equals("EN-IN"))
             {
                
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictName?.ToString() ?? string.Empty;
             }
             else
             {
               
-                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal.ToString();
+                districtname = saveUserPreferenceslist.ElementAt(0).DistrictNamelocal?.ToString() ?? string.Empty;
 
             }
 
@@ -96,7 +96,7 @@ namespace ResillentConstruction
                 
                 // Set the base URL to the directory containing the HTML file
                 // This should make relative paths like "img/Figure3.1.1.JPG" work correctly
-                var directoryPath = Path.GetDirectoryName(logicalName).Replace('\\', '/');
+                var directoryPath = Path.GetDirectoryName(logicalName)?.Replace('\\', '/') ?? string.Empty;
                 htmlSource.BaseUrl = $"ms-appx:///{directoryPath}/";
                 
                 System.Diagnostics.Debug.WriteLine($"Setting base URL to: ms-appx:///{directoryPath}/");
@@ -127,7 +127,7 @@ namespace ResillentConstruction
                 foreach (System.Text.RegularExpressions.Match match in matches)
                 {
                     var imgSrc = match.Groups[1].Value;
-                    var fullImgPath = Path.Combine(Path.GetDirectoryName(logicalName), imgSrc).Replace('\\', '/');
+                    var fullImgPath = Path.Combine(Path.GetDirectoryName(logicalName) ?? string.Empty, imgSrc).Replace('\\', '/');
                     
                     try
                     {
