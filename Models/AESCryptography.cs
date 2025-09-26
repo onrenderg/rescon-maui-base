@@ -47,7 +47,7 @@ namespace ResillentConstruction
             aes.KeySize = 128;
             aes.BlockSize = 128;
             aes.Key = keyBytes;
-            aes.IV = keyBytes;
+            aes.IV = keyBytes; // mgogo
             return aes;
         }
         private static byte[] Encrypt(byte[] plainBytes, Aes aes)
