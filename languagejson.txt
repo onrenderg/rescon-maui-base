@@ -38,8 +38,8 @@
             "StateID": "2",
             "MultipleResourceKey": "AppName",
             "ResourceKey": "AppName",
-            "ResourceValue": "Resilient Construction HP",
-            "LocalResourceValue": "लचीला निर्माण एच.पी",
+            "ResourceValue": "Him Kavach",
+            "LocalResourceValue": "हिम कवच",
             "Sequence": "1"
         },
 

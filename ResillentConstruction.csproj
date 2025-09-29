@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>HimKavach</ApplicationTitle>
+		<ApplicationTitle>Him Kavach</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>nic.hp.himkavach</ApplicationId>

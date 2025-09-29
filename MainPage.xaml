@@ -14,9 +14,11 @@
 
             <!-- Centered title -->
             <Label Grid.Column="1" x:Name="lbl_navigation_header"
-               Text="HPSDMA" TextColor="White" FontSize="20" FontAttributes="Bold"
+               Text="Him Kavach" TextColor="White" FontSize="20" FontAttributes="Bold"
                HorizontalOptions="Center" HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"/>
+        <Image Grid.Column="0" Source="ic_launcher.png"
+                    HeightRequest="40" WidthRequest="40" VerticalOptions="Center"/>
 
             <!-- Right spacer to balance the logo width -->
             <ContentView Grid.Column="2" WidthRequest="40"/>
@@ -50,7 +52,7 @@
                                HorizontalOptions="Center"/>
 
                         <resillentconstruction:JustifiedLabel
-                            Text="Resilient Construction HP is a guiding app for individual house builders willing to construct disaster resistant houses in Himachal Pradesh, a beautiful place in the lap of the Himalayas. This region is frequently visited by earthquakes, landslides, and floods that bring havoc to individual houses not designed to withstand such destructive forces. This app talks about how to select a safe site for construction and what to do and what not to do at different stages of construction to build a safe, durable, cost efficient and comfortable house that can grow to meet your future family needs."
+                            Text="Him Kavach is a guiding app for individual house builders willing to construct disaster resistant houses in Himachal Pradesh, a beautiful place in the lap of the Himalayas. This region is frequently visited by earthquakes, landslides, and floods that bring havoc to individual houses not designed to withstand such destructive forces. This app talks about how to select a safe site for construction and what to do and what not to do at different stages of construction to build a safe, durable, cost efficient and comfortable house that can grow to meet your future family needs."
                             FontSize="18"
 
                             LineBreakMode="WordWrap"

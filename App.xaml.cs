@@ -17,7 +17,7 @@ namespace ResillentConstruction
 {
     public partial class App : Application
     {
-        public static string AppName = "Resilient Construction H.P.";
+        public static string AppName = "Him Kavach";
         public static string DB_Name = "ResilientConstruction.db";
         LanguageMasterDatabase languageMasterDatabase = new LanguageMasterDatabase();
         public static int Language = 0;
@@ -238,7 +238,7 @@ namespace ResillentConstruction
                 db.ExecuteNonQuery("INSERT INTO languagemaster(LocalResourceValue, MultipleResourceKey, ResourceKey, ResourceValue, Sequence) VALUES('जोन ए', 'ZoneA', 'ZoneA', 'Zone A', 1);");
                 db.ExecuteNonQuery("INSERT INTO languagemaster(LocalResourceValue, MultipleResourceKey, ResourceKey, ResourceValue, Sequence) VALUES('जोन बी', 'ZoneB', 'ZoneB', 'Zone B', 1);");
                 db.ExecuteNonQuery("INSERT INTO languagemaster(LocalResourceValue, MultipleResourceKey, ResourceKey, ResourceValue, Sequence) VALUES('जोन सी', 'ZoneC', 'ZoneC', 'Zone C', 1);");
-                db.ExecuteNonQuery("INSERT INTO languagemaster(LocalResourceValue, MultipleResourceKey, ResourceKey, ResourceValue, Sequence) VALUES('एचपीएसडीएमए', 'lbl_navigation_header', 'lbl_navigation_header', 'HPSDMA', 1);");
+                db.ExecuteNonQuery("INSERT INTO languagemaster(LocalResourceValue, MultipleResourceKey, ResourceKey, ResourceValue, Sequence) VALUES('हिम कवच', 'lbl_navigation_header', 'lbl_navigation_header', 'Him Kavach', 1);");
                 db.ExecuteNonQuery("INSERT INTO languagemaster(LocalResourceValue, MultipleResourceKey, ResourceKey, ResourceValue, Sequence) VALUES('आपका जिला', 'yourdistrict', 'yourdistrict', 'Your District', 1);");
                 db.ExecuteNonQuery("INSERT INTO languagemaster(LocalResourceValue, MultipleResourceKey, ResourceKey, ResourceValue, Sequence) VALUES('मोबाइल नंबर या ई-मेल दर्ज करें', 'entemailormobile', 'entemailormobile', 'Enter Mobile No. or E-mail', 1);");
                 db.ExecuteNonQuery("INSERT INTO languagemaster(LocalResourceValue, MultipleResourceKey, ResourceKey, ResourceValue, Sequence) VALUES('आपके', 'aspergpsen', 'aspergpsen', 'As per your GPS location, you fall under district ', 1);");
