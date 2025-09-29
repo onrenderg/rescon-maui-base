@@ -20,7 +20,7 @@ namespace ResillentConstruction.webapi
 {
     public class HitServices
     {
-        public string AppName = "Resilient Construction HP";
+        public string AppName = "Him Kavach";
         public string NoInternet_ = "No Internet Connection Found.";
         string BasicAuth = $"{HttpUtility.UrlEncode(AESCryptography.EncryptAES("ResilientConstruction"))}:{HttpUtility.UrlEncode(AESCryptography.EncryptAES("9kO9E3CP7P8F0823"))}";
 

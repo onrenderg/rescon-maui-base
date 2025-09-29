@@ -49,7 +49,10 @@ namespace ResillentConstruction
             }
     
 
-            lbl_navigation_header.Text = "HPSDMA";
+            // lbl_navigation_header.Text = App.LableText("lbl_navigation_header");
+            // lbl_footer.Text = App.LableText("mobilecenter") + " " + App.LableText("nic") + " (v" + VersionTracking.CurrentVersion+")";
+
+            lbl_navigation_header.Text = "Him Kavach";
             lbl_footer.Text = "Centre Of Competence For Mobile Application Development NIC Himachal Pradesh" + " (v" + VersionTracking.CurrentVersion+")";
         
 

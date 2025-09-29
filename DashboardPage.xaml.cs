@@ -28,8 +28,11 @@ namespace ResillentConstruction
         {
             InitializeComponent();
             saveUserPreferenceslist = saveUserPreferencesDatabase.GetSaveUserPreferences("Select * from SaveUserPreferences").ToList();
+            if (saveUserPreferenceslist.Any() )
+            { 
+
             userzone = saveUserPreferenceslist.ElementAt(0).zonename?.ToString() ?? string.Empty;
-            string language = Preferences.Get("lan",  "EN-IN");
+            string language = Preferences.Get("lan", "EN-IN");
 
             if (language.Equals("EN-IN"))
             {
@@ -46,7 +49,7 @@ namespace ResillentConstruction
             lbl_user_header1.Text = App.LableText("welcome") + " " + (saveUserPreferenceslist.ElementAt(0).Name?.ToString() ?? string.Empty) + "\n" +
              App.LableText("yourdistrict") + " : " + districtname + "\n" + App.LableText("yourzone") + " : " + userzone;
 
-
+        }
             Footer_Labels = new Label[3] { Tab_Home_Label, Tab_Download_Label, Tab_Settings_Label };
             Footer_Images = new Image[3] { Tab_Home_Image, Tab_Download_Image, Tab_Settings_Image };
             Footer_Image_Source = new string[3] { "ic_home.png", "ic_download.png", "ic_more.png" };         
