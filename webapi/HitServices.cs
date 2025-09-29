@@ -24,7 +24,13 @@ namespace ResillentConstruction.webapi
         public string NoInternet_ = "No Internet Connection Found.";
         string BasicAuth = $"{HttpUtility.UrlEncode(AESCryptography.EncryptAES("ResilientConstruction"))}:{HttpUtility.UrlEncode(AESCryptography.EncryptAES("9kO9E3CP7P8F0823"))}";
 
-        public string PrivacyPolicyUrl = "http://10.146.2.8/ResilientConstructionAPI/PrivacyPolicy.aspx";// for login and fetching departments       
+
+// mgogo
+        // public string PrivacyPolicyUrl = "http://10.146.2.8/ResilientConstructionAPI/PrivacyPolicy.aspx";// for login and fetching departments       
+       public string PrivacyPolicyUrl = "https://mobileappshp.nic.in/assets/pdf/mobile-app-privacy-policy/HimKavach.html"
+
+       
+       
        // public string baseurl = "http://10.146.2.8/ResilientConstructionAPI/";       
         public string currentLocationUrl = "https://mobileappshp.nic.in/shereshthhimachal/Initilisation.svc/location?";
 
@@ -35,7 +41,10 @@ namespace ResillentConstruction.webapi
         public static string GetAppVersionDetailsUrl = "https://mobileappshp.nic.in/MyDiary/MobileAppVersions.svc/GetAppVersion?";//App version check
 
         public string guidebookpriurl = "https://hpsdma.nic.in//admnis/admin/showimg.aspx?ID=3671";
-          public string Constructionpriurl = "https://drive.google.com/file/d/1HC0QfxRdXhdIksQ_Rd86fQb4W5SGEJXB/view?usp=sharing";
+
+// mgogo
+        // public string Constructionpriurl = "https://drive.google.com/file/d/1HC0QfxRdXhdIksQ_Rd86fQb4W5SGEJXB/view?usp=sharing";
+        public string Constructionpriurl = "https://youtu.be/kEJCc2OMZvQ"
         DistrictMasterDatabase districtMasterDatabase = new DistrictMasterDatabase();
         List<DistrictMaster> districtMasters = new List<DistrictMaster>();
         LanguageMasterDatabase languageMasterDatabase = new LanguageMasterDatabase();   
