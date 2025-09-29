@@ -41,7 +41,7 @@ namespace ResillentConstruction
                 insertdistrict();
             }
 
-            insertlanguageleys1();
+            //insertlanguageleys1();
             MyLanguage = languageMasterDatabase.GetLanguageMaster("Select * from LanguageMaster").ToList();
             if (!MyLanguage.Any())
             {
